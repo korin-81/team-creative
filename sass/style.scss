@@ -975,7 +975,7 @@ a {
   object-fit: cover;
 }
 
-// p-news
+// お知らせ 一覧ページ
 .p-news {
   margin-bottom: 82px;
 }
@@ -1339,7 +1339,7 @@ a {
   font-size: 13px;
 }
 
-// l-news-page
+// お知らせ 記事ページ
 .p-news-page {
   
 }
@@ -1376,3 +1376,247 @@ a {
   line-height: 200%; /* 32px */
 }
 
+// サービス＆料金ページ
+.p-service {
+
+}
+
+.p-service__inner {
+
+}
+
+
+.p-service__link {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 80px;
+  margin: 80px 0;
+}
+
+.p-service__box {
+  display: flex;
+  flex-direction: column;
+  gap: cal-clamp(12, 16);
+}
+
+.p-service__box-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.p-service__box-content-text {
+  color: $main-color;
+  font-family: $font-family-main;
+  font-size: cal-clamp(14, 16);
+  font-weight: 700;
+  letter-spacing: 0.64px;
+}
+
+.p-service__price {
+  margin: 0 auto;
+  padding: 120px 0 40px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.p-service__price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 24px;
+  border-radius: 8px;
+  border: 1px solid $main-color;
+}
+
+.p-service__price-box-head {
+  display: block;
+  width: max-content;
+  padding: 8px 24px;
+  background: $main-color;
+  font-size: cal-clamp(20, 36);
+  color: $white;
+  border-radius: 8px;
+}
+
+.p-service__price-box-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.p-service__price-box-ac {
+  width: 100%;
+}
+
+.p-service__price-box-ac-one {
+  &.is-open {
+    .p-service__price-box-ac-head {
+      &::after {
+        transform: rotate(180deg) translateY(50%);
+      }
+    }
+  }
+}
+
+.p-service__price-box-ac-head {
+  padding: 20px;
+  width: 100%;
+  border: 1px solid $main-color;
+  color: $main-color;
+  text-align: center;
+  font-family: $font-family-main;
+  font-size: cal-clamp(16, 20);
+  font-weight: 400;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: url(../img/ac-arrow.png) no-repeat center center / contain;
+
+  }
+}
+
+.service-js-accordion {
+
+}
+
+.p-service__price-box-ac-detail {
+  display: none;
+  background: $beige;
+}
+
+.p-service__price-box-ac-detail-content {
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;  
+}
+
+.p-service__price-box-ac-detail-head {
+  font-size: cal-clamp(24, 36);
+}
+
+.ac-detail-head-yen {
+  font-size: cal-clamp(20, 28);
+  padding-right: 8px;
+}
+
+.ac-detail-head-text {
+  font-size: cal-clamp(16, 20);
+  padding-left: 8px;
+}
+
+.p-service__price-box-ac-detail-menu {
+  width: 100%;
+  padding: 16px 0 0;
+  border-top: 1px solid $main-color;
+}
+
+
+.p-service__price-box-ac-detail-menu-head {
+  font-size: cal-clamp(16, 20);
+  line-height: 200%; /* 40px */
+  text-align: center;
+}
+
+.p-service__price-box-ac-detail-menu-list {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.p-service__price-box-ac-detail-menu-item {
+  max-width: 100px;
+  width: 100%;
+
+  p {
+    margin-top: cal-clamp(12, 16);
+    font-size: cal-clamp(10, 12);
+    line-height: 150%; /* 18px */
+    text-align: center;
+  }
+}
+
+.p-service__price-box-ac-detail-menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+
+  img {
+    width: 48px;
+  }
+}
+
+.p-service__option {
+  margin: 24px auto;
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.p-service__option-head {
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid $main-color;
+  font-size: cal-clamp(28, 36);
+  font-weight: 400;
+}
+
+.p-service__option-message {
+  padding-top: 16px;
+  max-width: 572px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 200%; /* 40px */
+  text-align: center;
+}
+
+.p-service__option-list {
+
+}
+
+.p-service__option-item {
+
+}
+
+.p-service__option-item-price {
+  font-size: cal-clamp(12, 16);
+  text-align: center;
+}
+
+.p-service__option-icon {
+  background: $beige;
+}

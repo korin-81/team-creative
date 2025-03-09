@@ -258,3 +258,55 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(contactSection);
   }
 });
+
+// サービス アコーディオン
+// jQuery(".service-js-accordion").on("click", function (e) {
+//   e.preventDefault();
+
+//   if (jQuery(this).parent().hasClass("is-open")) {
+//     jQuery(this).parent().removeClass("is-open");
+//     jQuery(this).next().slideUp(600);
+//   } else {
+//     jQuery(this).parent().addClass("is-open");
+//     jQuery(this).next().slideDown(600);
+//   }
+// });
+
+jQuery(document).ready(function () {
+  // アコーディオンの開閉処理
+  jQuery(".service-js-accordion").on("click", function (e) {
+    e.preventDefault();
+
+    var parent = jQuery(this).parent();
+    var content = jQuery(this).next();
+
+    if (parent.hasClass("is-open")) {
+      parent.removeClass("is-open");
+      content.slideUp(600);
+    } else {
+      parent.addClass("is-open");
+      content.slideDown(600);
+    }
+  });
+
+  // メニューのリンクをクリックしたときに該当のアコーディオンを開く処理
+  jQuery(".p-service__box").on("click", function (e) {
+    var targetId = jQuery(this).attr("href"); // 例: "#new-born"
+    var target = jQuery(targetId);
+
+    if (target.length) {
+      e.preventDefault();
+
+      // すべてのアコーディオンを閉じる
+      jQuery(".p-service__price-box-ac-one").removeClass("is-open");
+      jQuery(".p-service__price-box-ac-detail").slideUp(600);
+
+      // 該当のアコーディオンを開く
+      var accordionButton = target.find(".service-js-accordion");
+      var accordionContent = accordionButton.next();
+
+      target.find(".p-service__price-box-ac-one").addClass("is-open");
+      accordionContent.slideDown(600);
+    }
+  });
+});
