@@ -259,18 +259,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// サービス アコーディオン
-// jQuery(".service-js-accordion").on("click", function (e) {
-//   e.preventDefault();
-
-//   if (jQuery(this).parent().hasClass("is-open")) {
-//     jQuery(this).parent().removeClass("is-open");
-//     jQuery(this).next().slideUp(600);
-//   } else {
-//     jQuery(this).parent().addClass("is-open");
-//     jQuery(this).next().slideDown(600);
-//   }
-// });
 
 jQuery(document).ready(function () {
   // アコーディオンの開閉処理
@@ -282,10 +270,10 @@ jQuery(document).ready(function () {
 
     if (parent.hasClass("is-open")) {
       parent.removeClass("is-open");
-      content.slideUp(600);
+      content.stop().slideUp(600);
     } else {
       parent.addClass("is-open");
-      content.slideDown(600);
+      content.stop().slideDown(600);
     }
   });
 
@@ -297,16 +285,32 @@ jQuery(document).ready(function () {
     if (target.length) {
       e.preventDefault();
 
-      // すべてのアコーディオンを閉じる
-      jQuery(".p-service__price-box-ac-one").removeClass("is-open");
-      jQuery(".p-service__price-box-ac-detail").slideUp(600);
+      // **すべてのアニメーションを停止**
+      jQuery("html, body").stop();
+      jQuery(".p-service__price-box-ac-detail").stop();
 
-      // 該当のアコーディオンを開く
+      // **すべてのアコーディオンを閉じる**
+      jQuery(".p-service__price-box-ac-one").removeClass("is-open");
+      jQuery(".p-service__price-box-ac-detail").slideUp(300);
+
+      // **アコーディオンを開く**
       var accordionButton = target.find(".service-js-accordion");
       var accordionContent = accordionButton.next();
 
       target.find(".p-service__price-box-ac-one").addClass("is-open");
-      accordionContent.slideDown(600);
+
+      accordionContent.slideDown(600, function () {
+        // **開いた後にidの位置へスクロール**
+        var targetOffset = target.offset().top - 120;
+        jQuery("html, body").animate(
+          {
+            scrollTop: targetOffset,
+          },
+          500
+        );
+      });
     }
   });
 });
+
+
