@@ -882,9 +882,10 @@ a {
 // フェードイン　共通
 .js-in-view {
   opacity: 0;
-  transform: translateY(40px); /* 下から上にフェードイン */
-  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+  transform: translateY(20px); /* 下から上にフェードイン */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .js-fade-in-load {
   opacity: 0;
   transform: translateY(60px); /* 下から上にフェードイン */
@@ -920,12 +921,21 @@ a {
   }
 }
 
-.js-slidein.is-active .slidein-l {
+.p-news__cards.is-active .slidein-l {
   animation: slidein-l 1.5s ease-out both;
 }
 
-.js-slidein.is-active .slidein-r {
+.p-news__cards.is-active .slidein-r {
   animation: slidein-r 1.5s ease-out both;
+}
+
+.p-news__cards {
+  opacity: 0;
+  transition: opacity 1s ease-out; /* ふわっと表示する */
+}
+
+.p-news__cards.is-active {
+  opacity: 1;
 }
 
 
@@ -1572,7 +1582,7 @@ a {
 }
 
 .p-service__option {
-  margin: 24px auto;
+  margin: 24px auto 64px;
   padding: 40px;
   max-width: 800px;
   width: 100%;
@@ -1609,7 +1619,12 @@ a {
 }
 
 .p-service__option-item {
+  display: flex;
+  flex-direction: column;
+}
 
+.p-service__option-text {
+  flex-grow: 1;
 }
 
 .p-service__option-item-price {
@@ -1619,4 +1634,14 @@ a {
 
 .p-service__option-icon {
   background: $beige;
+}
+
+.p-service__price-box-ac-detail-menu-text {
+  max-width: 572px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: cal-clamp(16, 20);
+  font-weight: 400;
+  line-height: 200%; 
 }

@@ -167,7 +167,7 @@ jQuery("a[href^='#']").on("click", function (e) {
 //   observer.observe(element);
 // });
 
-// フェードインまとめました！　こりん
+// フェードインまとめました！ こりん
 const observer = new IntersectionObserver(
   function (entries) {
     entries.forEach((entry) => {
@@ -260,6 +260,66 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// newsアーカイブのスライドイン
+document.addEventListener("DOMContentLoaded", function () {
+  const newsSections = document.querySelectorAll(".p-news__cards");
+
+  if (newsSections.length > 0) {
+    let currentIndex = 0; // 最初の `.p-news__cards` のインデックス
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-active");
+          observer.unobserve(entry.target); // 監視を解除
+
+          // 次のセクションの監視は、スクロールしたら開始
+          if (currentIndex + 1 < newsSections.length) {
+            window.addEventListener("scroll", handleScroll);
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // スクロールしたら次の `.p-news__cards` を監視開始
+    function handleScroll() {
+      if (currentIndex + 1 < newsSections.length) {
+        observer.observe(newsSections[currentIndex + 1]);
+        currentIndex++;
+        window.removeEventListener("scroll", handleScroll); // 監視開始後はイベントを削除
+      }
+    }
+
+    // 最初の `.p-news__cards` だけ監視開始
+    observer.observe(newsSections[currentIndex]);
+  }
+});
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const newsCardsContainer = document.querySelector(".p-news__cards");
+//   const lowerNewsCards = document.querySelectorAll(".p-news__card:nth-child(n+4)"); // 4番目以降を取得
+
+//   if (newsCardsContainer && lowerNewsCards.length > 0) {
+//     // 上段の3つを即時表示
+//     newsCardsContainer.classList.add("is-active");
+
+//     // 下段のカードを監視する
+//     const observer = new IntersectionObserver((entries, observer) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           newsCardsContainer.classList.add("is-active-lower");
+//           observer.unobserve(entry.target);
+//         }
+//       });
+//     }, { threshold: 0.3 });
+
+//     observer.observe(lowerNewsCards[0]); // 下段の最初の要素を監視
+//   }
+// });
+
+
+
+// serviceのアコーディオン・リンク押下後のスクロール
 jQuery(document).ready(function () {
   // アコーディオンの開閉処理
   jQuery(".service-js-accordion").on("click", function (e) {

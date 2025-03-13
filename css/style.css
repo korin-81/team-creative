@@ -1005,12 +1005,12 @@ a {
 
 .js-in-view {
   opacity: 0;
-  -webkit-transform: translateY(40px);
-          transform: translateY(40px); /* 下から上にフェードイン */
-  -webkit-transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
-  transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  transition: opacity 1s ease-out, transform 1s ease-out, -webkit-transform 1s ease-out;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px); /* 下から上にフェードイン */
+  -webkit-transition: opacity 0.6s ease-out, -webkit-transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, -webkit-transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out;
 }
 
 .js-fade-in-load {
@@ -1079,14 +1079,24 @@ a {
             transform: translateX(0);
   }
 }
-.js-slidein.is-active .slidein-l {
+.p-news__cards.is-active .slidein-l {
   -webkit-animation: slidein-l 1.5s ease-out both;
           animation: slidein-l 1.5s ease-out both;
 }
 
-.js-slidein.is-active .slidein-r {
+.p-news__cards.is-active .slidein-r {
   -webkit-animation: slidein-r 1.5s ease-out both;
           animation: slidein-r 1.5s ease-out both;
+}
+
+.p-news__cards {
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out; /* ふわっと表示する */
+}
+
+.p-news__cards.is-active {
+  opacity: 1;
 }
 
 /* 全画面ローディング用 */
