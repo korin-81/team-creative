@@ -128,23 +128,176 @@
         </ul>
       </div>
     </div>
-
-    <section class="p-news-page">
-      <div class="p-news-page__inner inner">
+  
+    <section class="p-reservation">
+      <div class="p-news__inner inner">
         <div class="l-head__heading p-news__head">
-          <p class="l-head__heading-text">NEWS</p>
+          <p class="l-head__heading-text">ご予約フォーム</p>
         </div>
-        <article class="p-news-page__card">
-          <img class="js-fade-in-load" src="./img/img-news1x2.png" alt="ニュース">
-          <time class="p-news-page__card-date slidein-l" datetime="2024-01-15">2024.01.15</time>
-          <h1 class="p-news-page__card-title slidein-l">3月3日はひな祭り。初節句のお祝いを写真に残しませんか？</h1>
-          <p class="p-news-page__card-text slidein-l">
-          桃の花が咲き誇る季節、3月3日は「ひな祭り」。<br>女の子の健やかな成長を願う特別な日です。<br>初めて迎えるひな祭りは、ご家族にとっても大切な思い出。<br>Époque Studioでは、ひな人形や和装とともに、愛らしい姿を写真に残します。<br>お子さまの笑顔と、家族の温かな時間を未来に届ける一枚を。<br>期間限定プランもご用意しております。<br>ご予約・お問い合わせは、お早めにどうぞ！
+        <div class="p-reservation__message">
+          <p>各種撮影のご依頼は下記フォームから<br class="hidden-pc">お願いいたします。
+            <br>質問・ご相談などもお気軽に<br class="hidden-pc">お問い合わせください。
+            <br>ご依頼の前に注意事項を必ずご確認ください。
           </p>
-        </article>
+        </div>
+        <form class="reservation__form">
+          <div class="reservation__fields">
+            <div class="reservation__field">
+              <div class="form-field__head">
+                <label for="your-age" class="form-field__label">撮影プランをお選びください。</label>
+                <span class="form-field__tag is-option">必須</span>
+              </div>
+              <div class="form-field__item form-select-wrapper">
+                <select name="plan" id="plan" class="form-select">
+                  <option value="">撮影プランをお選びください。</option>
+                  <option value="">誕生に関して</option>
+                  <option value="">記念に関して</option>
+                  <option value="">七五三に関して</option>
+                  <option value="">成人式に関して</option>
+                  <option value="">結婚に関して</option>
+                  <option value="">マタニティに関して</option>
+                  <option value="">長寿の祝いに関して</option>
+                  <option value="">その他に関して</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field">
+                <div class="form-field__head">
+                  <label for="your-name" class="form-field__label"
+                    >お名前</label
+                  >
+                  <span class="form-field__tag">必須</span>
+                </div>
+                <div class="form-field__item">
+                  <input
+                    class="form-text"
+                    type="text"
+                    name="your-name"
+                    id="your-name"
+                    placeholder="例：山田花子"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field">
+                <div class="form-field__head">
+                  <label for="your-name" class="form-field__label"
+                    >フリガナ</label
+                  >
+                  <span class="form-field__tag">必須</span>
+                </div>
+                <div class="form-field__item">
+                  <input
+                    class="form-text"
+                    type="text"
+                    name="hurigana"
+                    id="hurigana"
+                    placeholder="例：ヤマダハナコ"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field">
+                <div class="form-field__head">
+                  <label for="your-tel" class="form-field__label"
+                    >電話番号</label
+                  >
+                  <span class="form-field__tag">必須</span>
+                </div>
+                <div class="form-field__item">
+                  <input
+                    class="form-text"
+                    type="tel"
+                    name="your-tel"
+                    id="your-tel"
+                    placeholder="例：09012345678(ハイフンなし)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field">
+                <div class="form-field__head">
+                  <label for="your-email" class="form-field__label"
+                    >メールアドレス</label
+                  >
+                  <span class="form-field__tag">必須</span>
+                </div>
+                <div class="form-field__item">
+                  <input
+                    class="form-text"
+                    type="email"
+                    name="your-email"
+                    id="email"
+                    placeholder="例：sample@epoque.com"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field__head">
+                <label for="your-age" class="form-field__label">撮影希望日</label>
+                <span class="form-field__tag is-option">必須</span>
+              </div>
+              <div class="form-field__item form-select-wrapper">
+                <select name="plan" id="day1" class="form-select form-select_date">
+                  <option value="">第1希望</option>
+                </select>
+              </div>
+              <div class="form-field__item form-select-wrapper form-select_day">
+                <select name="plan" id="day2" class="form-select form-select_date">
+                  <option value="">第2希望</option>
+                </select>
+              </div>
+              <div class="form-field__item form-select-wrapper">
+                <select name="plan" id="day3" class="form-select form-select_date">
+                  <option value="">第3希望</option>
+                </select>
+              </div>
+            </div>
+            <div class="reservation__field">
+              <div class="form-field">
+                <div class="form-field__head">
+                  <label for="your-message" class="form-field__label"
+                    >お問い合わせ内容</label
+                  >
+                </div>
+                <div class="form-field__item">
+                  <textarea
+                    name="your-message"
+                    id="your-message"
+                    class="form-textarea"
+                    cols="30"
+                    rows="10"
+                    placeholder="ご質問やご相談などお気軽にご入力ください。"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact__privacy">
+            <label class="form-checkbox">
+              <input
+                type="checkbox"
+                name="your-privacy"
+                class="form-checkbox__input"
+              />
+              <span class="form-checkbox__text"
+                ><a href="" target="_blank">プライバシーポリシー</a
+                >に同意する。</span
+              >
+            </label>
+          </div>
+          <div class="contact__button">
+            <input type="submit" value="入力内容を確認する" class="submit-button" />
+          </div>
+        </form>
       </div>
     </section>
-
+  
     <section class="l-contact">
       <div class="l-contact__inner inner">
         <div class="l-contact__contents">

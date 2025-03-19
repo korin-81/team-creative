@@ -850,12 +850,12 @@ a {
 }
 
 .l-head__heading {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: cal-clamp(8, 20);
+  padding-bottom: cal-clamp(8, 20);
   display: flex;
   gap: 8px;
   font-family: "Sawarabi Gothic";
-  font-size: cal-clamp(26, 40);
+  font-size: cal-clamp(16, 40);
   font-style: normal;
   font-weight: 400;
   color: $main-color;
@@ -1103,7 +1103,7 @@ a {
 
 .l-contact {
   background: $beige;
-  padding-top: 80px;
+  padding-top: cal-clamp(64, 80);
 }
 
 .l-contact__inner {
@@ -1112,14 +1112,24 @@ a {
 
 .l-contact__contents {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: calc(120px / 1200px * 100%);
+
+  @include mq(md){
+    flex-direction: row;
+  }
 }
 
 .l-contact__head {
   display: flex;
+  align-items: center;
   gap: 9px;
+
+  @include mq(md){
+    align-items: baseline;
+  }
 
   img {
     width: 40px;
@@ -1133,19 +1143,28 @@ a {
 
 .l-contact__head-en {
   font-family: "Noto Sans";
-  font-size: cal-clamp(24, 32);
+  font-size: cal-clamp(20, 32);
   font-weight: 500;
   letter-spacing: 1.28px;
 }
 
 .l-contact__head-ja {
+  margin-top: 5px;
   font-size: cal-clamp(16, 20);
   font-weight: 400;
-  letter-spacing: 0.8px;
+  letter-spacing: cal-clamp(0.64, 0.8);
+  
+  @include mq(md){
+    margin-top: 0;
+  }
 }
 
 .l-contact__button {
   position: relative;
+  margin-top: 23px;
+  @include mq(md){
+    margin-top: 0;
+  }
 
   &::after {
     content: "";
@@ -1206,12 +1225,18 @@ a {
 
 .l-contact__img {
   margin-top: 74px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 // l-footer
 .l-footer {
   background: $beige;
-  padding: 80px 0;
+  padding: 70px 0;
+
+  @include mq(md){
+    padding: 80px 0;
+  }
 }
 
 .l-footer__inner {
@@ -1220,10 +1245,25 @@ a {
 
 .l-footer__container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mq(md){
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .l-footer__contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include mq(md){
+    align-items: flex-start;
+    padding-top: 12px;
+  }
 }
 
 .l-footer__logo {
@@ -1240,9 +1280,13 @@ a {
 }
 
 .l-footer__sns {
-  margin-top: 36px;
+  margin-top: 42px;
   display: flex;
   gap: 16px;
+
+  @include mq(md){
+    margin-top: 36px;
+  }
 }
 
 .l-footer__sns-link {
@@ -1265,19 +1309,33 @@ a {
 }
 
 .l-footer__nav-list {
+  margin-top: 23px;
   display: flex;
-  gap: cal-clamp(16, 40);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: cal-clamp(6, 40);
+
+  @include mq(md){
+    margin-top: 0;
+    flex-direction: row;
+    align-items: baseline;
+  }
 }
 
 .l-footer__nav-item {
   position: relative;
-  padding-top: 17px;
+
+  @include mq(md){
+    padding-top: 17px;
+  } 
 
   a {
     display: inline-block;
     position: relative;
     padding-bottom: 4px; 
     text-decoration: none;
+    font-size: cal-clamp(14, 15);
 
     &::after {
       content: "";
@@ -1303,13 +1361,27 @@ a {
 .l-footer__bottom {
   margin-top: 48px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  @include mq(md){
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .l-footer__bottom-list {
   display: flex;
-  gap: cal-clamp(16, 24);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: cal-clamp(6, 24);
+
+  @include mq(md){
+    flex-direction: row;
+  }
+  
 }
 
 .l-footer__bottom-item {
@@ -1347,6 +1419,10 @@ a {
 .l-footer__bottom-copylight {
   font-family: "Noto Sans JP";
   font-size: 13px;
+  margin-top: 8px;
+  @include mq(md){
+    margin-top: 0;
+  }
 }
 
 // お知らせ 記事ページ
@@ -1645,3 +1721,307 @@ a {
   font-weight: 400;
   line-height: 200%; 
 }
+
+// 下層予約フォームページ
+.p-reservation__message {
+  margin: 67px 0 24px;
+  text-align: center;
+  font-size: cal-clamp(14, 24);
+  line-height: 180%;
+
+  @include mq(md){
+    margin: 75px 0 80px;
+    line-height: 1.25;
+  }
+}
+
+.p-news__inner {
+  padding-inline: cal-clamp(16, 30);
+}
+
+.reservation__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 63px;
+  
+
+  @include mq(md) {
+    border-radius: 8px;
+    border: 1px solid $main-color;
+    padding: 48px 0;
+    margin: 0 auto 90px;
+  }
+}
+
+.reservation__fields {
+  max-width: 584px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: cal-clamp(33, 41);
+}
+
+.reservation__field {
+
+}
+
+.form-field__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8.5px;
+}
+
+.form-field__label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 180%; /* 25.2px */
+  letter-spacing: 0.56px;
+}
+
+.form-field__tag {
+  padding: 2px 10px;
+  border-radius: 5px;
+  background: #5F9F66;
+  color: $white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 180%; /* 21.6px */
+  letter-spacing: 0.48px;
+}
+
+.is-option {
+
+}
+
+.form-field__item {
+  input, select, textarea {
+    width: 100%;
+  }
+  
+}
+
+.form-select-wrapper {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 43px; /* ボタン部分の横幅 */
+    height: 100%;
+    background: var(--brown_gradation, linear-gradient(180deg, #C7832B 0%, #724000 100%)); /* 矢印部分の背景色 */
+    border-radius: 0px 5px 5px 0px;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #FAFAFA; /* 矢印の色 */
+    pointer-events: none;
+    z-index: 5;
+  }
+}
+
+.form-select_day {
+    margin: cal-clamp(10, 12) 0;
+}
+
+.form-select {
+  width: 100%;
+  padding: 5px 40px 5px 12px;
+  font-size: 14px;
+  color: $sub-color;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #F9F9F9 0%, #DCDCDC 100%); /* プルダウン全体の背景色 */
+  appearance: none; /* デフォルトのスタイルを無効化 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+
+  &::-ms-expand {
+    appearance: none;
+  }
+  @include mq(md){
+    padding: 4px 40px 4px 12px;
+  }
+}
+
+.form-select option {
+  color: $main-color;
+}
+
+.form-select:focus, 
+.form-select option:checked {
+  color: $main-color;
+  border:2px solid $main-color;
+  outline: none;
+}
+
+.form-field {
+
+}
+
+.form-text,
+.form-textarea {
+  border-radius: 5px;
+  border: 1px solid $sub-color;
+  padding: 8px 16px;
+
+  @include mq(md){
+    padding: 10px 16px;
+  }
+
+  &::placeholder {
+    color: $sub-color;
+  }
+
+  &:hover,
+  &:focus {
+    border:2px solid $main-color;
+    outline: none;
+  }
+}
+
+.form-text {
+
+}
+
+.form-textarea {
+  height: 214px;
+}
+
+.contact__privacy {
+  margin-top: 36px;
+  max-width: 584px;
+  width: 100%;
+}
+
+.form-checkbox {
+  &:hover {
+    .form-checkbox__text {
+      &::before {
+        border:2px solid $main-color;
+      }
+    }
+  }
+}
+
+.form-checkbox__input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+
+  &:checked {
+    + .form-checkbox__text {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:focus {
+    + .form-checkbox__text {
+      &::before {
+        border:2px solid $main-color;
+      }
+    }
+  }
+}
+
+.form-checkbox__text {
+  position: relative;
+  padding-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $main-color;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    width: 15px;
+    height: 15px;
+    border-radius: 1px;
+    border: 1px solid $sub-color;
+    transition: border-color 0.3s;
+  }
+
+  &::after {
+    content: "✓";
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    opacity: 0;
+  }
+
+  a {
+    text-decoration-line: underline;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0075C2;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $main-color;
+    }
+
+    &:focus {
+      border:2px solid $main-color ;
+      outline: none;
+    }
+  }
+}
+
+.contact__button {
+  margin-top: 62px;
+  max-width: 584px;
+  width: 100%;
+
+  @include mq(md){
+    margin-top: 64px;
+  }
+}
+
+.submit-button {
+  width: 100%;
+  padding: 20px 0px;
+  border-radius: 4px;
+  background: #724000;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 180%; /* 28.8px */
+  letter-spacing: 1.6px;
+  color: $white;
+  @include mq(md){
+    padding: 16px 0px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transition: all 0.6s ease;
+  }
+}
+

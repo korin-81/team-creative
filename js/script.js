@@ -373,4 +373,45 @@ jQuery(document).ready(function () {
   });
 });
 
+// 予約フォーム日付オプション
+document.addEventListener("DOMContentLoaded", function () {
+  // すべての select 要素を取得
+  const selects = document.querySelectorAll(".form-select_date");
+
+  // 今日の日付を取得
+  const today = new Date();
+
+  // 曜日リスト（0: 日曜 ～ 6: 土曜）
+  const weekDays = ["日", "月", "火", "水", "木", "金", "土"];
+
+  // 1か月後から6か月後までの全日を追加
+  const startDate = new Date(today);
+  startDate.setMonth(today.getMonth() + 1); // 1か月後の同じ日
+  const endDate = new Date(today);
+  endDate.setMonth(today.getMonth() + 6); // 6か月後の同じ日
+
+  while (startDate <= endDate) {
+    const year = startDate.getFullYear();
+    const month = startDate.getMonth() + 1; // getMonth() は0始まりなので +1
+    const day = startDate.getDate();
+    const weekDay = weekDays[startDate.getDay()]; // 曜日を取得
+
+    const formattedDate = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const displayDate = `${year}年${month}月${day}日（${weekDay}）`;
+
+    // 各 select にオプションを追加
+    selects.forEach(select => {
+      const option = document.createElement("option");
+      option.value = formattedDate;
+      option.textContent = displayDate;
+      select.appendChild(option);
+    });
+
+    // 日付を1日進める
+    startDate.setDate(startDate.getDate() + 1);
+  }
+});
+
+
+
 
