@@ -412,6 +412,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// フォームのバリデーション
+const form = jQuery("#js-form");
+const inputElements = form.find(".js-form-input");
+
+form.on("submit", function (e) {
+  e.preventDefault();
+
+  inputElements.removeClass("is-error");
+  const isValid = form[0].checkValidity();
+  if (isValid) {
+    alert("送信完了");
+    form[0].reset();
+  }
+});
+
+inputElements.on("invalid", function () {
+  jQuery(this).addClass("is-error");
+});
+
+inputElements.on("input", function () {
+  if (this.checkValidity()) {
+    jQuery(this).removeClass("is-error");
+  }
+});
+
 
 
 

@@ -1803,7 +1803,11 @@ a {
   input, select, textarea {
     width: 100%;
   }
-  
+
+  &.is-error {
+    border-color: #ce2073;
+    background: #fff0f7;
+  }
 }
 
 .form-select-wrapper {
@@ -1858,6 +1862,11 @@ a {
   @include mq(md){
     padding: 4px 40px 4px 12px;
   }
+
+  &.is-error {
+    border-color: #ce2073;
+    background: #fff0f7;
+  }
 }
 
 .form-select option {
@@ -1893,6 +1902,11 @@ a {
   &:focus {
     border:2px solid $main-color;
     outline: none;
+  }
+
+  &.is-error {
+    border-color: #ce2073;
+    background: #fff0f7;
   }
 }
 
@@ -1939,6 +1953,15 @@ a {
     + .form-checkbox__text {
       &::before {
         border:2px solid $main-color;
+      }
+    }
+  }
+
+  &.is-error {
+    + .form-checkbox__text {
+      &::before {
+        background-color: #fff0f7;
+        border: 1px solid #ce2073;
       }
     }
   }
