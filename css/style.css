@@ -2141,6 +2141,10 @@ a {
 .form-field__item input, .form-field__item select, .form-field__item textarea {
   width: 100%;
 }
+.form-field__item.is-error {
+  border-color: #ce2073;
+  background: #fff0f7;
+}
 
 .form-select-wrapper {
   position: relative;
@@ -2197,6 +2201,10 @@ a {
     padding: 4px 40px 4px 12px;
   }
 }
+.form-select.is-error {
+  border-color: #ce2073;
+  background: #fff0f7;
+}
 
 .form-select option {
   color: #724000;
@@ -2243,6 +2251,11 @@ a {
   border: 2px solid #724000;
   outline: none;
 }
+.form-text.is-error,
+.form-textarea.is-error {
+  border-color: #ce2073;
+  background: #fff0f7;
+}
 
 .form-textarea {
   height: 214px;
@@ -2270,6 +2283,10 @@ a {
 }
 .form-checkbox__input:focus + .form-checkbox__text::before {
   border: 2px solid #724000;
+}
+.form-checkbox__input.is-error + .form-checkbox__text::before {
+  background-color: #fff0f7;
+  border: 1px solid #ce2073;
 }
 
 .form-checkbox__text {
