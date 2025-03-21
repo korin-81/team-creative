@@ -87,63 +87,46 @@ const swiper = new Swiper(".fv-swiper", {
         swiper.slideNext();
       }
     },
-
-    slideChange: function () {
-      // 現在のスライドインデックスを取得
-      const activeIndex = this.realIndex;
-
-      // 白テキストが見えにくい範囲の時
-      if (window.matchMedia("(max-width: 580px)").matches) {
-        // 3枚目のスライドの時
-        if (activeIndex === 2) {
-          jQuery(".fv__lead").css("color", "#000"); // テキストの色を黒に
-        } else {
-          jQuery(".fv__lead").css("color", "#fff"); // テキストの色を白に
-        }
-      }
-    },
   },
 });
 
-// コンセプトセクションのアニメーション
-const conceptAnimation1 = document.querySelector(".concept-animation__item1");
-const conceptAnimation2 = document.querySelector(".concept-animation__item2");
-const conceptAnimation3 = document.querySelector(".concept-animation__item3");
+// すべてのアニメーション対象を取得
+const conceptAnimations = document.querySelectorAll(".concept-animation__item");
 
 // Intersection Observerの設定
 const animationOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.2,
+  threshold: 0.2, // 20% 以上画面内に入ったら発火
 };
 
 // 要素が画面に入ったときのコールバック
-const animationCallback = (entries) => {
+const animationCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("is-animated");
+      entry.target.classList.add("is-animated"); // アニメーション実行
+      observer.unobserve(entry.target); // 監視解除（再アニメーションを防ぐ）
     }
   });
 };
 
-// Intersection Observerのインスタンスを作成
+// Observerインスタンスを作成
 const animationObserver = new IntersectionObserver(
   animationCallback,
   animationOptions
 );
 
-// 監視を開始
-if (conceptAnimation1) animationObserver.observe(conceptAnimation1);
-if (conceptAnimation2) animationObserver.observe(conceptAnimation2);
-if (conceptAnimation3) animationObserver.observe(conceptAnimation3);
+// すべての対象要素を監視
+conceptAnimations.forEach((item) => {
+  animationObserver.observe(item);
+});
 
-jQuery("#js-drawer-icon").on("click", function (e) {
+jQuery(".header__open").on("click", function (e) {
   e.preventDefault();
-  jQuery("#js-drawer-icon").toggleClass("is-checked");
+  jQuery(".header__open").toggleClass("is-checked");
   jQuery("#js-drawer-content").toggleClass("is-checked");
   jQuery("body").toggleClass("is-fixed");
 
-  // ドロワーを開いたらアニメーションを発動
   if (jQuery("#js-drawer-content").hasClass("is-checked")) {
     jQuery(".drawer-animation__item").addClass("is-animated");
   } else {
@@ -198,10 +181,35 @@ jQuery("a[href^='#']").on("click", function (e) {
   );
 });
 
+// サービスセクションのスライド
+// サービスセクションの要素を監視
+const serviceObserver = new IntersectionObserver(
+  function (entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-animated"); // 一度追加したらそのまま
+        observer.unobserve(entry.target); // 監視を停止（再アニメーションを防ぐ）
+      }
+    });
+  },
+  {
+    rootMargin: "-20% 0px",
+    threshold: 0.2, // 20% 以上画面内に入ったら発火
+  }
+);
+
+// 監視対象の要素を取得
+const serviceItems = document.querySelectorAll(".service-content__item");
+
+// 各要素の監視を開始
+serviceItems.forEach((item) => {
+  serviceObserver.observe(item);
+});
+
 // ギャラリーセクションのスライダー
 const gallerySwiper = new Swiper(".gallery-swiper", {
   slidesPerView: 3.5,
-  spaceBetween: 30,
+  spaceBetween: 6,
   loop: true,
   autoplay: {
     delay: 0,
@@ -232,4 +240,25 @@ const fadeInElements = document.querySelectorAll(".js-in-view");
 // フェードインの対象を監視
 fadeInElements.forEach((element) => {
   observer.observe(element);
+});
+
+// こりんさんcontact headの左右アニメーション
+document.addEventListener("DOMContentLoaded", function () {
+  const contactSection = document.querySelector(".l-contact");
+
+  if (contactSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            contactSection.classList.add("is-active");
+            observer.unobserve(entry.target); // 一度発火したら監視をやめる
+          }
+        });
+      },
+      { threshold: 0.3 } // 30%見えたら発火
+    );
+
+    observer.observe(contactSection);
+  }
 });
