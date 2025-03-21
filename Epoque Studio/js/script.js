@@ -242,6 +242,25 @@ fadeInElements.forEach((element) => {
   observer.observe(element);
 });
 
+// サービスセクションのデコレーションアニメーション
+const serviceDecoration = document.querySelector(".service-decoration");
+
+const decorationObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-checked");
+        decorationObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  }
+);
+
+decorationObserver.observe(serviceDecoration);
+
 // こりんさんcontact headの左右アニメーション
 document.addEventListener("DOMContentLoaded", function () {
   const contactSection = document.querySelector(".l-contact");

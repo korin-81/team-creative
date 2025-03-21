@@ -602,6 +602,22 @@ a {
   position: relative;
   width: 100%;
 
+  .swiper {
+    position: relative;
+    margin-top: 31px;
+    overflow: hidden;
+    object-fit: cover;
+    margin-right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 3s ease forwards;
+
+    @include mq(md) {
+      margin-top: 0;
+      width: calc(1156 / 1200 * 100%);
+    }
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -610,6 +626,33 @@ a {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  .swiper-pagination {
+    display: none !important;
+    position: absolute;
+    bottom: 50% !important;
+    left: 26px !important;
+    transform: translateY(50%);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include mq(md) {
+      display: flex !important;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color: $sub-color !important;
+    opacity: 1 !important;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $main-color !important;
     }
   }
 
@@ -628,49 +671,6 @@ a {
 
   .slide-black {
     object-position: 80% center !important;
-  }
-}
-
-.swiper {
-  position: relative;
-  margin-top: 31px;
-  overflow: hidden;
-  object-fit: cover;
-  margin-right: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 3s ease forwards;
-
-  @include mq(md) {
-    margin-top: 0;
-    width: calc(1156 / 1200 * 100%);
-  }
-}
-
-.swiper-pagination {
-  display: none !important;
-  position: absolute;
-  bottom: 50% !important;
-  left: 26px !important;
-  transform: translateY(50%);
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  @include mq(md) {
-    display: block !important;
-  }
-}
-
-.swiper-pagination-bullet {
-  width: 16px;
-  height: 16px;
-  background-color: $sub-color !important;
-  opacity: 1 !important;
-
-  &.swiper-pagination-bullet-active {
-    background-color: $main-color !important;
   }
 }
 
@@ -1234,34 +1234,33 @@ a {
 .service {
   background-image: linear-gradient(to bottom, transparent, $beige);
   position: relative;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -83%;
-    left: 0;
+.service-decoration {
+  position: absolute;
+  bottom: 5%;
+  left: -29%;
+  min-width: 120px;
+  z-index: 0;
+
+  img {
     min-width: 120px;
-    width: calc(318 / 1440 * 100%);
+    width: calc(722 / 1440 * 100%);
     height: 100%;
-    background-image: url("../img/gallery-background_img.png");
-    background-size: contain;
-    z-index: 0;
-    background-repeat: no-repeat;
-    transform: scaleX(-1);
+  }
 
-    &.is-checked {
-      animation: slideIn 1s ease forwards;
+  &.is-checked {
+    animation: slideIn 1s ease forwards;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
     }
-
-    @keyframes slideIn {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }
@@ -1656,6 +1655,8 @@ a {
   font-size: 12px;
 }
 
+//こりんさんのコード
+
 .contact {
   padding-top: 80px;
   background-color: $beige;
@@ -1686,7 +1687,6 @@ a {
   text-wrap: nowrap;
 }
 
-//こりんさんのコード
 // contact
 .l-contact__head,
 .l-contact__button {
@@ -2037,7 +2037,7 @@ a {
   }
 }
 
-.l-footer__bottom-copyright {
+.l-footer__bottom-copylight {
   font-family: "Noto Sans JP";
   font-size: 13px;
   margin-top: 8px;
