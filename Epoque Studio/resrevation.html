@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Epoque_Studio</title>
+    <meta name="description" content="Epoque_Studioのサイトです。" />
+    <meta
+      name="keywords"
+      content="Epoque_Studio,写真,フォトスタジオ,写真館,写真家,写真家のサイト"
+    />
+    <meta name="author" content="Epoque_Studio" />
+    <meta property="og:title" content="Epoque_Studio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://epoque-studio.com/" />
+    <meta
+      property="og:image"
+      content="https://epoque-studio.com/img/epoque-studio_img.webp"
+    />
+    <meta property="og:site_name" content="Epoque_Studio" />
+    <meta
+      property="og:description"
+      content="写真家Epoque_Studioのサイトです。"
+    />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/lib/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <!-- ページの内容 -->
+
+  <body class="body-reservation">
+    <header id="js-header" class="header header-follow">
+      <div class="header__inner inner">
+        <div class="header__logo">
+          <a href="#"><h1>Époque Studio</h1></a>
+        </div>
+        <div class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="#news">お知らせ</a></li>
+            <li class="header__nav-item">
+              <a href="#concept">コンセプト</a>
+            </li>
+            <li class="header__nav-item"><a href="#service">サービス</a></li>
+            <li class="header__nav-item">
+              <a href="#gallery">ギャラリー</a>
+            </li>
+            <li class="header__nav-item"><a href="#staff">スタッフ</a></li>
+            <li class="header__nav-item"><a href="#access">アクセス</a></li>
+          </ul>
+          <div class="header__nav-contact">
+            <ul class="header__nav-contact-list">
+              <li class="header__nav-contact-item">
+                <a
+                  href="#reserve"
+                  class="header__nav-contact-link header__nav-contact-link--reserve"
+                  >撮影予約</a
+                >
+              </li>
+              <li class="header__nav-contact-item">
+                <a
+                  href="#contact"
+                  class="header__nav-contact-link header__nav-contact-link--contact"
+                  >お問い合わせ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="drawer-open__wrapper">
+          <button id="js-drawer-icon" class="header__open drawer-icon">
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="side-bar">
+      <div class="side-bar__inner">
+        <div class="side-bar__contents-item">
+          <a href="">FOLLOW US</a>
+        </div>
+        <div class="side-bar-sns__wrapper">
+          <div class="side-bar-sns__item">
+            <img src="./img/instagram.svg" alt="" />
+          </div>
+          <div class="side-bar-sns__item">
+            <img src="./img/facebook.svg" alt="" />
+          </div>
+          <div class="side-bar-sns__item">
+            <img src="./img/line.svg" alt="" />
+          </div>
+        </div>
+        <div class="side-bar-contact__link">
+          <a href="">お問い合わせ・撮影のご予約はこちら</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="js-drawer-content" class="drawer__content">
+      <div class="drawer__inner inner">
+        <div class="drawer-content__logo">
+          <a href="#"><h1>Époque Studio</h1></a>
+        </div>
+        <div class="drawer-content__nav">
+          <div class="drawer-contact__list">
+            <div class="drawer-contact__item">
+              <a href="#reserve" class="drawer-contact__link">撮影予約</a>
+            </div>
+            <div class="drawer-contact__item">
+              <a href="#contact" class="drawer-contact__link">お問い合わせ</a>
+            </div>
+          </div>
+          <ul class="drawer-content__list">
+            <li class="drawer-content__link"><a href="#news">お知らせ</a></li>
+            <li class="drawer-content__link">
+              <a href="#concept">コンセプト</a>
+            </li>
+            <li class="drawer-content__link service__nav-link">
+              <a href="#service" class="">サービス</a>
+            </li>
+            <li class="drawer-content__link service__item-link">
+              <div class="service__item-link-wrapper">
+                <div class="service-link__column">
+                  <a href="#">誕生</a>
+                  <a href="#">記念日</a>
+                  <a href="#">七五三</a>
+                  <a href="#">成人式</a>
+                </div>
+                <div class="service-link__column">
+                  <a href="#">結婚</a>
+                  <a href="#">マタニティ</a>
+                  <a href="#">長寿のお祝い</a>
+                  <a href="#">その他</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="drawer-content__link">
+              <a href="#gallery">ギャラリー</a>
+            </li>
+            <li class="drawer-content__link">
+              <a href="#staff">スタッフ</a>
+            </li>
+            <li class="drawer-content__link">
+              <a href="#access">アクセス</a>
+            </li>
+          </ul>
+        </div>
+        <div class="drawer-close__wrapper">
+          <button id="js-drawer-close" class="drawer__close">
+            <span class="drawer__close-line"></span>
+            <span class="drawer__close-line"></span>
+          </button>
+        </div>
+        <div class="drawer-animation__item">
+          <img src="./img/flying-bird.webp" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <header id="js-header" class="header">
+      <div class="header__inner inner">
+        <div class="header__logo">
+          <a href="#"><h1>Époque Studio</h1></a>
+        </div>
+        <div class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="#news">お知らせ</a></li>
+            <li class="header__nav-item">
+              <a href="#concept">コンセプト</a>
+            </li>
+            <li class="header__nav-item service__nav-link">
+              <a href="#service">サービス</a>
+              <div class="service__item-link">
+                <div class="service__item-link-wrapper">
+                  <div class="service-link__column">
+                    <a href="#">誕生</a>
+                    <a href="#">記念日</a>
+                    <a href="#">七五三</a>
+                    <a href="#">成人式</a>
+                  </div>
+                  <div class="service-link__column">
+                    <a href="#">結婚</a>
+                    <a href="#">マタニティ</a>
+                    <a href="#">長寿のお祝い</a>
+                    <a href="#">その他</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__nav-item">
+              <a href="#gallery">ギャラリー</a>
+            </li>
+            <li class="header__nav-item"><a href="#staff">スタッフ</a></li>
+            <li class="header__nav-item"><a href="#access">アクセス</a></li>
+          </ul>
+          <div class="header__nav-contact">
+            <ul class="header__nav-contact-list">
+              <li class="header__nav-contact-item">
+                <a
+                  href="#reserve"
+                  class="header__nav-contact-link header__nav-contact-link--reserve"
+                  >撮影予約</a
+                >
+              </li>
+              <li class="header__nav-contact-item">
+                <a
+                  href="#contact"
+                  class="header__nav-contact-link header__nav-contact-link--contact"
+                  >お問い合わせ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="drawer-open__wrapper">
+          <button id="js-drawer-icon" class="header__open drawer-icon">
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="wrapper">
+      <main>
+        <section class="l-reserve-process">
+          <div class="l-reserve-process__inner inner">
+            <div class="l-head__heading l-reserve-process__head">
+              <p class="l-head__heading-text">ご予約&撮影の流れ</p>
+            </div>
+            <div class="l-reserve__title">
+              <h2>ご予約・撮影の流れ</h2>
+            </div>
+
+            <div class="l-reserve-process__contents">
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">ご予約</h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-phone_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>webフォームまたはLINEより<br />ご予約をお願いします。</p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  ご来館・衣装着付け
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-hanger_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>ご来館後、衣装を<br />選んでいただきます。</p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  撮影・写真選び
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-photo_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>
+                    すべての撮影が終了した後に<br />じっくりお選びいただけます。
+                  </p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  商品をお届け
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-present_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>
+                    撮影データはダウンロードでの<br />
+                    お渡しになります。<br />
+                    その他の商品は郵送で<br />
+                    お届けいたします。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="l-reserve-contact__contents">
+              <div class="l-reserve__title">
+                <h2>ご予約・お問い合わせはこちらから</h2>
+              </div>
+              <div class="l-reserve-contact__bottom-wrapper">
+                <div class="l-reserve-contact__line">
+                  <div class="l-reserve-contact__line-icon">
+                    <img src="./img/line_qr.png" alt="" />
+                  </div>
+                  <div class="l-reserve-contact__line-text">
+                    <p>LINE <br />ID：@EPOQUESTUDIO</p>
+                  </div>
+                </div>
+                <div class="l-reserve-contact__info">
+                  <dl class="l-reserve-contact__info-list">
+                    <div class="l-reserve-contact__info-term">
+                      <dt>TEL</dt>
+                      <dd>：04-7150-5678</dd>
+                    </div>
+                    <div class="l-reserve-contact__info-term">
+                      <dt>メールアドレス</dt>
+                      <dd>contact@epoque-studio.jp</dd>
+                    </div>
+                    <div class="l-reserve-contact__info-term">
+                      <dt>営業時間</dt>
+                      <dd>10:00〜18:00（火曜定休）</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="l-contact">
+          <div class="l-contact__inner inner">
+            <div class="l-contact__contents">
+              <div class="l-contact__head">
+                <img src="./img/plane-icon.png" alt="" />
+                <div class="l-contact__head-text">
+                  <h1 class="l-contact__head-en">CONTACT FORM</h1>
+                  <p class="l-contact__head-ja">お気軽にご相談ください。</p>
+                </div>
+              </div>
+              <div class="l-contact__button">
+                <a href="">お問い合わせ・ご予約はこちら</a>
+              </div>
+            </div>
+            <div class="l-contact__img">
+              <img src="./img/contact-img.png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <footer class="l-footer">
+          <div class="l-footer__inner inner">
+            <div class="l-footer__container">
+              <div class="l-footer__contents">
+                <h1 class="l-footer__logo">
+                  <img src="./img/logo.png" alt="logo" />
+                </h1>
+                <div class="l-footer__sns">
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/instagram.svg" alt="instagram"
+                  /></a>
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/facebook.svg" alt="facebook"
+                  /></a>
+                </div>
+              </div>
+              <ul class="l-footer__nav-list">
+                <li class="l-footer__nav-item"><a href="#news">おしらせ</a></li>
+                <li class="l-footer__nav-item">
+                  <a href="#concept">コンセプト</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#service">サービス</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#gallery">ギャラリー</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#staff">スタッフ</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#access">アクセス</a>
+                </li>
+              </ul>
+            </div>
+            <div class="l-footer__bottom">
+              <ul class="l-footer__bottom-list">
+                <li class="l-footer__bottom-item"><a href="#">利用規約</a></li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">プライバシーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">セキュリティーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">特定商取引に基づく表記</a>
+                </li>
+              </ul>
+              <small class="l-footer__bottom-copyright"
+                >© Époque Studio All rights reserved.</small
+              >
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/lib/swiper-bundle.min.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>

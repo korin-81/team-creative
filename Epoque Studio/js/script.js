@@ -31,14 +31,16 @@
 //   }
 // });
 
-// ヘッダーの背景色変更
+// ヘッダーの背景色変更（安全に）
 window.addEventListener("scroll", () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const newsSection = document.querySelector("#news");
-  const newsTop = newsSection.offsetTop;
   const headerFollow = document.querySelector(".header-follow");
+  const newsSection = document.querySelector("#news");
 
-  // newsセクションを超えたらis-showを付与
+  if (!headerFollow || !newsSection) return; // どっちかないなら処理しない
+
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const newsTop = newsSection.offsetTop;
+
   if (scrollTop >= newsTop) {
     headerFollow.classList.add("is-show");
   } else {
@@ -155,6 +157,16 @@ jQuery("#js-drawer-close").on("click", function (e) {
   jQuery(".drawer-animation__item").removeClass("is-animated");
 });
 
+jQuery(".drawer__content .service__nav-link").on("click", function (e) {
+  e.preventDefault();
+
+  const $nav = jQuery(this);
+  const $target = $nav.next(".service__item-link"); // ←ここを修正！
+
+  $nav.toggleClass("is-open");
+  $target.stop().slideToggle(300);
+});
+
 // リンクをクリックしたらそのセクションまでスクロール
 jQuery("a[href^='#']").on("click", function (e) {
   e.preventDefault(); // デフォルトのページ遷移を防ぐ
@@ -208,12 +220,18 @@ serviceItems.forEach((item) => {
 
 // ギャラリーセクションのスライダー
 const gallerySwiper = new Swiper(".gallery-swiper", {
-  slidesPerView: 3.5,
+  slidesPerView: 2.4,
   spaceBetween: 6,
   loop: true,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 3.5,
+      spaceBetween: 30,
+    },
   },
   speed: 3000,
   effect: "slide",
@@ -243,23 +261,26 @@ fadeInElements.forEach((element) => {
 });
 
 // サービスセクションのデコレーションアニメーション
+// サービスデコレーション（安全に）
 const serviceDecoration = document.querySelector(".service-decoration");
 
-const decorationObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-checked");
-        decorationObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.3,
-  }
-);
+if (serviceDecoration) {
+  const decorationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-checked");
+          decorationObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
 
-decorationObserver.observe(serviceDecoration);
+  decorationObserver.observe(serviceDecoration);
+}
 
 // こりんさんcontact headの左右アニメーション
 document.addEventListener("DOMContentLoaded", function () {
