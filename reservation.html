@@ -40,7 +40,7 @@
   </head>
   <!-- ページの内容 -->
 
-  <body class="body-reservation body-news">
+  <body class="body-reservation">
     <header id="js-header" class="header header-follow">
       <div class="header__inner inner">
         <div class="header__logo">
@@ -235,98 +235,137 @@
         </div>
       </div>
     </header>
-  
+
+    <!-- メインコンテンツ -->
     <div class="wrapper">
       <main>
-        <section class="p-news">
-          <div class="p-news__inner inner">
-            <div class="l-head__heading p-news__head">
-              <p class="l-head__heading-text">NEWS</p>
+        <section class="l-reserve-process">
+          <div class="l-reserve-process__inner inner">
+            <div class="l-head__heading l-reserve-process__head">
+              <p class="l-head__heading-text">ご予約&撮影の流れ</p>
             </div>
-            <div class="p-news__cards js-slidein">
-              <article class="p-news__card slidein-l">
-                <a href="" class="p-news__card-link">
-                  <img src="./img/img-news1.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-01-15">2024.01.15</time>
-                  <h1 class="p-news__card-title">3月3日はひな祭り。初節句のお祝いを写真に残しませんか？</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-r">
-                <a href="" class="p-news__card-link">
-                  <img src="./img/img-news2.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-01-01">2025.01.01</time>
-                  <h1 class="p-news__card-title">あけましておめでとうございます。</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-l">
-                <a href="" class="p-news__card-link">
-                  <img src="./img/img-news3.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-12-01">2024.12.01</time>
-                  <h1 class="p-news__card-title">七五三、2月の後撮りおすすめです。</h1>
-                </a>
-              </article>
+            <div class="l-reserve__title">
+              <h2>ご予約・撮影の流れ</h2>
             </div>
-            <div class="p-news__cards">
-              <article class="p-news__card slidein-r slidein-delay">
-                <a href="" class="p-news__card-link ">
-                  <img src="./img/img-news4.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-11-20">2024.12.01</time>
-                  <h1 class="p-news__card-title">大切な人への贈り物に。フォトギフトで感謝を伝える</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-l slidein-delay">
-                <a href="" class="p-news__card-link">
-                  <img src="./img/img-news5.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-10-01">2024.10.01</time>
-                  <h1 class="p-news__card-title">一生に一度の成人式。振袖・袴姿を美しく残しましょう</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-r slidein-delay">
-                <a href="" class="p-news__card-link">
-                  <img src="./img/img-news6.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-06-01">2024.06.01</time>
-                  <h1 class="p-news__card-title">七五三の撮影予約スタート！最高の笑顔を未来へ</h1>
-                </a>
-              </article>
+
+            <div class="l-reserve-process__contents">
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">ご予約</h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-phone_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>webフォームまたはLINEより<br />ご予約をお願いします。</p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  ご来館・衣装着付け
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-hanger_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>ご来館後、衣装を<br />選んでいただきます。</p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  撮影・写真選び
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-photo_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>
+                    すべての撮影が終了した後に<br />じっくりお選びいただけます。
+                  </p>
+                </div>
+              </div>
+              <div class="l-reserve-process__contents-item">
+                <h3 class="l-reserve-process__contents-item-title">
+                  商品をお届け
+                </h3>
+                <div class="l-reserve-process__contents-item-icon">
+                  <img src="./img/reserve-present_icon.png" alt="" />
+                </div>
+                <div class="l-reserve-process__contents-item-text">
+                  <p>
+                    撮影データはダウンロードでの<br />
+                    お渡しになります。<br />
+                    その他の商品は郵送で<br />
+                    お届けいたします。
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="l-pager">
-              <nav class="p-pager">
-                <span aria-current="page" class="page-numbers current">1</span>
-                <a class="page-numbers" href="">2</a>
-                <!-- <a class="next page-numbers" href=""><i class="fas fa-angle-right"></i></a> -->
-              </nav>
+            <div class="l-reserve-contact__contents">
+              <div class="l-reserve__title">
+                <h2>ご予約・お問い合わせはこちらから</h2>
+              </div>
+              <div class="l-reserve-contact__bottom-wrapper">
+                <div class="l-reserve-contact__line">
+                  <div class="l-reserve-contact__line-icon">
+                    <img src="./img/line_qr.png" alt="" />
+                  </div>
+                  <div class="l-reserve-contact__line-text">
+                    <p>LINE <br />ID：@EPOQUESTUDIO</p>
+                  </div>
+                </div>
+                <div class="l-reserve-contact__info">
+                  <dl class="l-reserve-contact__info-list">
+                    <div class="l-reserve-contact__info-term">
+                      <dt>TEL</dt>
+                      <dd>：04-7150-5678</dd>
+                    </div>
+                    <div class="l-reserve-contact__info-term">
+                      <dt>メールアドレス</dt>
+                      <dd>contact@epoque-studio.jp</dd>
+                    </div>
+                    <div class="l-reserve-contact__info-term">
+                      <dt>営業時間</dt>
+                      <dd>10:00〜18:00（火曜定休）</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-  
         <section class="l-contact">
           <div class="l-contact__inner inner">
             <div class="l-contact__contents">
               <div class="l-contact__head">
-                <img src="./img/plane-icon.png" alt="">
+                <img src="./img/plane-icon.png" alt="" />
                 <div class="l-contact__head-text">
                   <h1 class="l-contact__head-en">CONTACT FORM</h1>
                   <p class="l-contact__head-ja">お気軽にご相談ください。</p>
                 </div>
               </div>
-              <div class="link__button l-contact__button">
-                <a href="#">全てのお知らせを見る</a>
+              <div class="l-contact__button">
+                <a href="">お問い合わせ・ご予約はこちら</a>
               </div>
             </div>
-            <div class="l-contact__img"><img src="./img/contact-img.png" alt=""></div>
+            <div class="l-contact__img">
+              <img src="./img/contact-img.png" alt="" />
+            </div>
           </div>
         </section>
-  
+
         <footer class="l-footer">
           <div class="l-footer__inner inner">
             <div class="l-footer__container">
               <div class="l-footer__contents">
                 <h1 class="l-footer__logo">
-                  <img src="./img/logo.png" alt="logo">
+                  <img src="./img/logo.png" alt="logo" />
                 </h1>
                 <div class="l-footer__sns">
-                  <a href="" class="l-footer__sns-link"><img src="./img/instagram.svg" alt="instagram"></a>
-                  <a href="" class="l-footer__sns-link"><img src="./img/facebook.svg" alt="facebook"></a>
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/instagram.svg" alt="instagram"
+                  /></a>
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/facebook.svg" alt="facebook"
+                  /></a>
                 </div>
               </div>
               <ul class="l-footer__nav-list">
@@ -334,31 +373,48 @@
                 <li class="l-footer__nav-item">
                   <a href="#concept">コンセプト</a>
                 </li>
-                <li class="l-footer__nav-item"><a href="#service">サービス</a></li>
+                <li class="l-footer__nav-item">
+                  <a href="#service">サービス</a>
+                </li>
                 <li class="l-footer__nav-item">
                   <a href="#gallery">ギャラリー</a>
                 </li>
-                <li class="l-footer__nav-item"><a href="#staff">スタッフ</a></li>
-                <li class="l-footer__nav-item"><a href="#access">アクセス</a></li>
+                <li class="l-footer__nav-item">
+                  <a href="#staff">スタッフ</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#access">アクセス</a>
+                </li>
               </ul>
             </div>
             <div class="l-footer__bottom">
               <ul class="l-footer__bottom-list">
                 <li class="l-footer__bottom-item"><a href="#">利用規約</a></li>
-                <li class="l-footer__bottom-item"><a href="#">プライバシーポリシー</a></li>
-                <li class="l-footer__bottom-item"><a href="#">セキュリティーポリシー</a></li>
-                <li class="l-footer__bottom-item"><a href="#">特定商取引に基づく表記</a></li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">プライバシーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">セキュリティーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">特定商取引に基づく表記</a>
+                </li>
               </ul>
-              <small class="l-footer__bottom-copylight">© Époque Studio All rights reserved.</small>
+              <small class="l-footer__bottom-copyright"
+                >© Époque Studio All rights reserved.</small
+              >
             </div>
           </div>
         </footer>
       </main>
     </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="./js/script.js"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/lib/swiper-bundle.min.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </body>
 </html>

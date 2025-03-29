@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Sawarabi+Gothic&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
     />
 
@@ -39,16 +39,16 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <!-- ページの内容 -->
-<body>
-  <div class="wrapper">
-    <header id="js-header" class="header l-header">
+
+  <body class="body-reservation">
+    <header id="js-header" class="header header-follow">
       <div class="header__inner inner">
         <div class="header__logo">
-          <h1><a href="#">Époque Studio</a></h1>
+          <a href="#"><h1>Époque Studio</h1></a>
         </div>
         <div class="header__nav">
           <ul class="header__nav-list">
-            <li class="header__nav-item"><a href="#news">おしらせ</a></li>
+            <li class="header__nav-item"><a href="#news">お知らせ</a></li>
             <li class="header__nav-item">
               <a href="#concept">コンセプト</a>
             </li>
@@ -87,7 +87,6 @@
         </div>
       </div>
     </header>
-  
     <div class="side-bar">
       <div class="side-bar__inner">
         <div class="side-bar__contents-item">
@@ -109,82 +108,192 @@
         </div>
       </div>
     </div>
-  
+
     <div id="js-drawer-content" class="drawer__content">
-      <div class="drawer__inner">
-        <ul class="drawer-content__list">
-          <li class="drawer-content__item"><a href="#news">おしらせ</a></li>
-          <li class="drawer-content__item">
-            <a href="#concept">コンセプト</a>
-          </li>
-          <li class="drawer-content__item">
-            <a href="#service">サービス</a>
-          </li>
-          <li class="drawer-content__item">
-            <a href="#gallery">ギャラリー</a>
-          </li>
-          <li class="drawer-content__item"><a href="#staff">スタッフ</a></li>
-          <li class="drawer-content__item"><a href="#access">アクセス</a></li>
-        </ul>
+      <div class="drawer__inner inner">
+        <div class="drawer-content__logo">
+          <a href="#"><h1>Époque Studio</h1></a>
+        </div>
+        <div class="drawer-content__nav">
+          <div class="drawer-contact__list">
+            <div class="drawer-contact__item">
+              <a href="#reserve" class="drawer-contact__link">撮影予約</a>
+            </div>
+            <div class="drawer-contact__item">
+              <a href="#contact" class="drawer-contact__link">お問い合わせ</a>
+            </div>
+          </div>
+          <ul class="drawer-content__list">
+            <li class="drawer-content__link"><a href="#news">お知らせ</a></li>
+            <li class="drawer-content__link">
+              <a href="#concept">コンセプト</a>
+            </li>
+            <li class="drawer-content__link service__nav-link">
+              <a href="#service" class="">サービス</a>
+            </li>
+            <li class="drawer-content__link service__item-link">
+              <div class="service__item-link-wrapper">
+                <div class="service-link__column">
+                  <a href="#">誕生</a>
+                  <a href="#">記念日</a>
+                  <a href="#">七五三</a>
+                  <a href="#">成人式</a>
+                </div>
+                <div class="service-link__column">
+                  <a href="#">結婚</a>
+                  <a href="#">マタニティ</a>
+                  <a href="#">長寿のお祝い</a>
+                  <a href="#">その他</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="drawer-content__link">
+              <a href="#gallery">ギャラリー</a>
+            </li>
+            <li class="drawer-content__link">
+              <a href="#staff">スタッフ</a>
+            </li>
+            <li class="drawer-content__link">
+              <a href="#access">アクセス</a>
+            </li>
+          </ul>
+        </div>
+        <div class="drawer-close__wrapper">
+          <button id="js-drawer-close" class="drawer__close">
+            <span class="drawer__close-line"></span>
+            <span class="drawer__close-line"></span>
+          </button>
+        </div>
+        <div class="drawer-animation__item">
+          <img src="./img/flying-bird.webp" alt="" />
+        </div>
       </div>
     </div>
 
+    <header id="js-header" class="header">
+      <div class="header__inner inner">
+        <div class="header__logo">
+          <a href="#"><h1>Époque Studio</h1></a>
+        </div>
+        <div class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="#news">お知らせ</a></li>
+            <li class="header__nav-item">
+              <a href="#concept">コンセプト</a>
+            </li>
+            <li class="header__nav-item service__nav-link">
+              <a href="#service">サービス</a>
+              <div class="service__item-link">
+                <div class="service__item-link-wrapper">
+                  <div class="service-link__column">
+                    <a href="#">誕生</a>
+                    <a href="#">記念日</a>
+                    <a href="#">七五三</a>
+                    <a href="#">成人式</a>
+                  </div>
+                  <div class="service-link__column">
+                    <a href="#">結婚</a>
+                    <a href="#">マタニティ</a>
+                    <a href="#">長寿のお祝い</a>
+                    <a href="#">その他</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__nav-item">
+              <a href="#gallery">ギャラリー</a>
+            </li>
+            <li class="header__nav-item"><a href="#staff">スタッフ</a></li>
+            <li class="header__nav-item"><a href="#access">アクセス</a></li>
+          </ul>
+          <div class="header__nav-contact">
+            <ul class="header__nav-contact-list">
+              <li class="header__nav-contact-item">
+                <a
+                  href="#reserve"
+                  class="header__nav-contact-link header__nav-contact-link--reserve"
+                  >撮影予約</a
+                >
+              </li>
+              <li class="header__nav-contact-item">
+                <a
+                  href="#contact"
+                  class="header__nav-contact-link header__nav-contact-link--contact"
+                  >お問い合わせ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="drawer-open__wrapper">
+          <button id="js-drawer-icon" class="header__open drawer-icon">
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+            <span class="header__btn-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrapper">
+    <main>
     <section class="p-service">
       <div class="p-service__inner inner">
         <div class="l-head__heading p-service__head">
           <p class="l-head__heading-text">サービス&料金</p>
         </div>
         <div class="p-service__link">
-          <a href="#new-born" class="p-service__box">
+          <a href="#new-born" class="p-service__box view view-slidein-l">
             <img src="./img/service-link1.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">誕生</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#aniversary" class="p-service__box">
+          <a href="#aniversary" class="p-service__box view view-slideup">
             <img src="./img/service-link2.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">記念日</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#shichigosan" class="p-service__box">
+          <a href="#shichigosan" class="p-service__box view view-slidein-l">
             <img src="./img/service-link3.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">七五三</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#seijin" class="p-service__box">
+          <a href="#seijin" class="p-service__box view view-slideup">
             <img src="./img/service-link4.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">成人式</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#wedding" class="p-service__box">
+          <a href="#wedding" class="p-service__box view view-slidein-l">
             <img src="./img/service-link5.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">結婚</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#maternity" class="p-service__box">
+          <a href="#maternity" class="p-service__box view view-slideup">
             <img src="./img/service-link6.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">マタニティ</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#longevity" class="p-service__box">
+          <a href="#longevity" class="p-service__box view view-slidein-l">
             <img src="./img/service-link7.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">長寿のお祝い</p>
               <img src="./img/icon-right-brown.svg" alt="">
             </div>
           </a>
-          <a href="#other" class="p-service__box">
+          <a href="#other" class="p-service__box view view-slideup">
             <img src="./img/service-link8.png" alt="">
             <div class="p-service__box-content">
               <p class="p-service__box-content-text">その他</p>
@@ -231,7 +340,7 @@
                       </ul>
                     </div>
                     <div class="p-service__price-box-ac-detail-menu">
-                      <h4 class="p-service__price-box-ac-detail-menu-head">おすすめのオプション</h4>
+                      <h4 class="p-service__price-box-ac-detail-menu-head recpmend">おすすめのオプション</h4>
                       <ul class="p-service__price-box-ac-detail-menu-list">
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <a href="#service__option"><div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-makeup.png" alt=""></div>
@@ -354,7 +463,7 @@
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-kimono.png" alt=""></div>
-                          <p>レンタル・着付け<br>(主役・ご家族)</p>
+                          <p>レンタル<br class="hidden-pc">・着付け<br>(主役・ご家族)</p>
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-makeup.png" alt=""></div>
@@ -405,7 +514,7 @@
                     </h3>
                     <div class="p-service__price-box-ac-detail-menu ac-detail-menu">
                       <h4 class="p-service__price-box-ac-detail-menu-head">所要時間：3時間</h4>
-                      <ul class="p-service__price-box-ac-detail-menu-list">
+                      <ul class="p-service__price-box-ac-detail-menu-list service__price-grid_sp">
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-camera.png" alt=""></div>
                           <p>全撮影データ<br>100カット</p>
@@ -416,11 +525,7 @@
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-kimono.png" alt=""></div>
-                          <p>レンタル・着付け<br>持込み可</p>
-                        </li>
-                        <li class="p-service__price-box-ac-detail-menu-item">
-                          <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-cloth.png" alt=""></div>
-                          <p>お子様衣装<br>持込み可</p>
+                          <p>レンタル<br class="hidden-pc">・着付け<br>持込み可</p>
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-makeup.png" alt=""></div>
@@ -475,22 +580,18 @@
                     </h3>
                     <div class="p-service__price-box-ac-detail-menu ac-detail-menu">
                       <h4 class="p-service__price-box-ac-detail-menu-head">所要時間：3時間</h4>
-                      <ul class="p-service__price-box-ac-detail-menu-list">
+                      <ul class="p-service__price-box-ac-detail-menu-list service__price-grid_sp">
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-camera.png" alt=""></div>
                           <p>全撮影データ<br>100カット</p>
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
-                          <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-family.png" alt=""></div>
-                          <p>家族写真</p>
-                        </li>
-                        <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-kimono.png" alt=""></div>
-                          <p>レンタル・着付け<br>持込み可</p>
+                          <p>着付け</p>
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-cloth.png" alt=""></div>
-                          <p>お子様衣装<br>持込み可</p>
+                          <p>衣装レンタル<br>持込み可</p>
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-makeup.png" alt=""></div>
@@ -573,11 +674,6 @@
                           <p>アルバム・<br>フォトフレーム</p>
                           </a>
                         </li>
-                        <li class="p-service__price-box-ac-detail-menu-item">
-                          <a href="#service__option"><div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-bouquet.png" alt=""></div>
-                          <p>創作花束</p>
-                          </a>
-                        </li>
                       </ul>
                     </div>
                   </div>
@@ -618,7 +714,7 @@
                         </li>
                         <li class="p-service__price-box-ac-detail-menu-item">
                           <div class="p-service__price-box-ac-detail-menu-icon"><img src="./img/icon-cloth.png" alt=""></div>
-                          <p>ちゃんちゃんこ<br>レンタル・持込み可</p>
+                          <p>ちゃんちゃんこ<br>レンタル・<br class="hidden-pc">持込み可</p>
                         </li>
                       </ul>
                     </div>
@@ -676,8 +772,8 @@
         </div>
         <div class="p-service__option" id="service__option">
           <div class="p-service__option-head">オプションのご案内</div>
-          <p class="p-service__option-message">それぞれのプランに、オプションとして追加していただくこと<br>が可能です。ご要望に応じて柔軟に対応いたします。
-            <br>記載のないオプションについても、お気軽にお問い合わせください。</p>
+          <p class="p-service__option-message">それぞれのプランに、オプションとして追加していただくこと<br class="hidden-sp">が可能です。ご要望に応じて柔軟に対応いたします。
+            <br>記載のないオプションについても、<br class="hidden-sp">お気軽にお問い合わせください。</p>
             <ul class="p-service__price-box-ac-detail-menu-list p-service__option-list">
               <li class="p-service__price-box-ac-detail-menu-item p-service__option-item">
                 <div class="p-service__price-box-ac-detail-menu-icon p-service__option-icon"><img src="./img/icon-album.png" alt=""></div>
@@ -696,7 +792,7 @@
               </li>
               <li class="p-service__price-box-ac-detail-menu-item p-service__option-item">
                 <div class="p-service__price-box-ac-detail-menu-icon p-service__option-icon"><img src="./img/icon-kimono.png" alt=""></div>
-                <p class="p-service__option-text">追加衣装・着付け</p>
+                <p class="p-service__option-text">追加衣装<br>・着付け</p>
                 <p class="p-service__option-item-price">+22,000円～</p>
               </li>
               <li class="p-service__price-box-ac-detail-menu-item p-service__option-item">
@@ -724,11 +820,11 @@
               <p class="l-contact__head-ja">お気軽にご相談ください。</p>
             </div>
           </div>
-          <div class="l-contact__button">
-            <a href="">お問い合わせ・ご予約はこちら</a>
+          <div class="link__button l-contact__button">
+            <a href="#">全てのお知らせを見る</a>
           </div>
         </div>
-        <div class="l-contact__img"><img class="js-in-view" src="./img/contact-img.png" alt=""></div>
+        <div class="l-contact__img"><img src="./img/contact-img.png" alt=""></div>
       </div>
     </section>
   
@@ -768,7 +864,8 @@
         </div>
       </div>
     </footer>
-  </div>
+  </main>
+</div>
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
