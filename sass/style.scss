@@ -2283,7 +2283,7 @@ a {
   gap: 9px;
 
   @include mq(md){
-    align-items: baseline;
+    align-items: flex-start;
   }
 
   img {

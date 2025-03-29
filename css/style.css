@@ -2699,9 +2699,9 @@ a:hover {
 }
 @media screen and (min-width: 768px) {
   .l-contact__head {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 .l-contact__head img {
