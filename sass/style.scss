@@ -2577,6 +2577,11 @@ a {
     gap: cal-clamp(16, 80);
     margin: 80px 0 75px;
   }
+
+  @media screen and (max-width: 768px) {
+    max-width: 394px;
+    margin: 36px auto;
+  }
 }
 
 .p-service__box {
@@ -2626,6 +2631,12 @@ a {
   gap: 25px;
   border-radius: 8px;
   border: 1px solid $main-color;
+
+  @media screen and (max-width: 768px) {
+    max-width: 394px;
+    margin: 0 auto;
+  }
+
 }
 
 .p-service__price-box-head {

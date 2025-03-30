@@ -3049,6 +3049,12 @@ a:hover {
     margin: 80px 0 75px;
   }
 }
+@media screen and (max-width: 768px) {
+  .p-service__link {
+    max-width: 394px;
+    margin: 36px auto;
+  }
+}
 
 .p-service__box {
   display: -webkit-box;
@@ -3122,6 +3128,12 @@ a:hover {
   gap: 25px;
   border-radius: 8px;
   border: 1px solid #724000;
+}
+@media screen and (max-width: 768px) {
+  .p-service__price-box {
+    max-width: 394px;
+    margin: 0 auto;
+  }
 }
 
 .p-service__price-box-head {
