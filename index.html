@@ -129,9 +129,26 @@
               <li class="drawer-content__link">
                 <a href="#concept">コンセプト</a>
               </li>
-              <li class="drawer-content__link">
-                <a href="#service">サービス</a>
+              <li class="drawer-content__link service__nav-link">
+                <a href="#service" class="">サービス</a>
               </li>
+              <li class="drawer-content__link service__item-link">
+                <div class="service__item-link-wrapper">
+                  <div class="service-link__column">
+                    <a href="#">誕生</a>
+                    <a href="#">記念日</a>
+                    <a href="#">七五三</a>
+                    <a href="#">成人式</a>
+                  </div>
+                  <div class="service-link__column">
+                    <a href="#">結婚</a>
+                    <a href="#">マタニティ</a>
+                    <a href="#">長寿のお祝い</a>
+                    <a href="#">その他</a>
+                  </div>
+                </div>
+              </li>
+
               <li class="drawer-content__link">
                 <a href="#gallery">ギャラリー</a>
               </li>
@@ -168,8 +185,24 @@
                 <li class="header__nav-item">
                   <a href="#concept">コンセプト</a>
                 </li>
-                <li class="header__nav-item">
+                <li class="header__nav-item service__nav-link">
                   <a href="#service">サービス</a>
+                  <div class="service__item-link">
+                    <div class="service__item-link-wrapper">
+                      <div class="service-link__column">
+                        <a href="#">誕生</a>
+                        <a href="#">記念日</a>
+                        <a href="#">七五三</a>
+                        <a href="#">成人式</a>
+                      </div>
+                      <div class="service-link__column">
+                        <a href="#">結婚</a>
+                        <a href="#">マタニティ</a>
+                        <a href="#">長寿のお祝い</a>
+                        <a href="#">その他</a>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <li class="header__nav-item">
                   <a href="#gallery">ギャラリー</a>
@@ -243,10 +276,13 @@
 
       <!-- メインコンテンツ -->
       <main>
-        <section class="news" id="news">
+        <section id="news" class="news section">
           <div class="news__inner inner">
             <div class="news-content__wrapper">
-              <h2 class="news__heading">最新情報</h2>
+              <h2 class="news__heading heading-title">
+                最新情報
+                <span class="news__heading-en heading-title-en">News</span>
+              </h2>
               <ul class="news__list">
                 <li class="news__item">
                   <a href="#">
@@ -285,38 +321,49 @@
             </div>
           </div>
         </section>
-        <section id="concept" class="concept">
+        <section id="concept" class="concept section">
           <div class="concept__inner inner">
-            <div class="concept-animation__item1">
+            <div class="concept-animation__item concept-animation__item--1">
               <img src="./img/flying-bird.webp" alt="" />
             </div>
-            <div class="concept-animation__item2">
+            <div class="concept-animation__item concept-animation__item--2">
               <img src="./img/floating-leaf1.webp" alt="" />
             </div>
-            <div class="concept-animation__item3">
+            <div class="concept-animation__item concept-animation__item--3">
               <img src="./img/floating-leaf2.webp" alt="" />
             </div>
-            <div class="concept-animation__item4">
+            <div class="concept-animation__item concept-animation__item--4">
               <img src="./img/floating-leaf3.webp" alt="" />
             </div>
 
-            <p class="concept__heading">
+            <p class="concept__heading-message">
               人生は、かけがえのない瞬間が繋がるストーリー。<br />
-              Époque
-              Studioでは、その大切な節目を一枚一枚の写真として形にします。<br />
-              新しい命の誕生、成長の記録、約束の瞬間、そして未来への想い――。<br />
-              柔らかな自然光と洗練されたデザインの中で、特別な時間を永遠に紡ぎます。
+              Époque Studioでは、<br
+                class="hidden-pc"
+              />その大切な節目を一枚一枚の<br class="hidden-sp" />
+              写真として形にします。<br />
+              新しい命の誕生、成長の記録、約束の瞬間、<br class="hidden-pc" />
+              そして<br class="hidden-sp" />
+              未来への想い――。<br />
+              柔らかな自然光と洗練されたデザインの中で、<br
+                class="hidden-pc"
+              />特別な<br class="hidden-sp" />時間を永遠に紡ぎます。
             </p>
             <div class="concept__img">
               <img src="./img/concept_img.webp" alt="" />
             </div>
           </div>
         </section>
-        <section id="service" class="service">
+        <section id="service" class="service section">
+          <div class="service-decoration">
+            <img src="./img/gallery-background_img.png" alt="" />
+          </div>
           <div class="service__inner inner">
-            <h2 class="service__heading heading-title">
+            <h2 class="service__heading heading-title js-in-view">
               サービス
-              <span class="service__heading-en heading-title-en">Service</span>
+              <span class="service__heading-en heading-title-en js-in-view"
+                >Service</span
+              >
             </h2>
 
             <div class="service-content__wrapper">
@@ -406,16 +453,18 @@
               </div>
             </div>
             <div class="service-link__button link__button">
-              <a href="#">全てのサービスを見る</a>
+              <a href="#">全てのプランを見る</a>
             </div>
           </div>
         </section>
-        <div class="service-wave"></div>
-        <section id="gallery" class="gallery">
+        <div class="service-wave wave-item"></div>
+        <section id="gallery" class="gallery section">
           <div class="gallery__inner inner">
-            <h2 class="gallery__heading heading-title">
+            <h2 class="gallery__heading heading-title js-in-view">
               ギャラリー
-              <span class="gallery__heading-en heading-title-en">Gallery</span>
+              <span class="gallery__heading-en heading-title-en js-in-view"
+                >Gallery</span
+              >
             </h2>
             <div class="gallery__slider">
               <div class="swiper gallery-swiper">
@@ -449,7 +498,7 @@
             </div>
             <div class="gallery-sns__link">
               <p class="gallery-sns__link-text">
-                SNSからもっと写真が見られます。
+                SNSからもっと写真がご覧いただけます
               </p>
               <div class="gallery-sns__link-wrapper">
                 <div class="gallery-sns__link-icon">
@@ -466,13 +515,23 @@
             </div>
           </div>
         </section>
-        <div class="gallery-wave"></div>
+        <div class="gallery-wave wave-item"></div>
         <section id="staff" class="staff">
           <div class="staff__inner inner">
-            <h2 class="staff__heading heading-title">
+            <h2 class="staff__heading heading-title js-in-view">
               スタッフ
-              <span class="staff__heading-en heading-title-en">Staffing</span>
+              <span class="staff__heading-en heading-title-en js-in-view"
+                >Staffing</span
+              >
             </h2>
+            <div class="staff__heading-message">
+              <p>
+                「あなたの人生のエポックを、一緒に」<br />
+                かけがえのない瞬間を、丁寧に<br
+                  class="hidden-pc"
+                />心を込めて撮影いたします。
+              </p>
+            </div>
             <div class="staff-content__wrapper">
               <div class="staff-content__item">
                 <img src="./img/staff_img1.webp" alt="" />
@@ -489,12 +548,14 @@
             </div>
           </div>
         </section>
-        <div class="staff-wave"></div>
-        <section id="access" class="access">
+        <div class="staff-wave wave-item"></div>
+        <section id="access" class="access section">
           <div class="access__inner inner">
-            <h2 class="access__heading heading-title">
+            <h2 class="access__heading heading-title js-in-view">
               アクセス
-              <span class="access__heading-en heading-title-en">Access</span>
+              <span class="access__heading-en heading-title-en js-in-view"
+                >Access</span
+              >
             </h2>
             <div class="access-content__wrapper">
               <div class="access-content__left">
@@ -507,21 +568,29 @@
                     <div class="access-content__info-item">
                       <dt>住所</dt>
                       <dd>
-                        ：〒270-0139 <br />
+                        <span class="hidden-sp-text">：</span>〒270-0139 <br />
                         千葉県流山市おおたかの森西1-2-3
                       </dd>
                     </div>
                     <div class="access-content__info-item">
                       <dt>TEL</dt>
-                      <dd>：04-7150-5678</dd>
+                      <dd>
+                        <span class="hidden-sp-text">：</span>04-7150-5678
+                      </dd>
                     </div>
                     <div class="access-content__info-item">
                       <dt>メールアドレス</dt>
-                      <dd>：info@epoque-studio.jp</dd>
+                      <dd>
+                        <span class="hidden-sp-text">：</span
+                        >info@epoque-studio.jp
+                      </dd>
                     </div>
                     <div class="access-content__info-item">
                       <dt>営業時間</dt>
-                      <dd>：10:00～18:00（火曜定休）</dd>
+                      <dd>
+                        <span class="hidden-sp-text">：</span
+                        >10:00～18:00（火曜定休）
+                      </dd>
                     </div>
                   </dl>
                 </div>
@@ -529,6 +598,7 @@
               <div class="access-content__right">
                 <div class="access-content__map">
                   <img src="./img/access-map_img.webp" alt="" />
+                  <p class="access-content__map-text">Googleマップを見る</p>
                 </div>
                 <div class="access-content-text__wrapper">
                   <p class="access-content__text">
@@ -549,6 +619,80 @@
             </div>
           </div>
         </section>
+        <section class="l-contact">
+          <div class="l-contact__inner inner">
+            <div class="l-contact__contents">
+              <div class="l-contact__head">
+                <img src="./img/plane-icon.png" alt="" />
+                <div class="l-contact__head-text">
+                  <h1 class="l-contact__head-en">CONTACT FORM</h1>
+                  <p class="l-contact__head-ja">お気軽にご相談ください。</p>
+                </div>
+              </div>
+              <div class="l-contact__button">
+                <a href="">お問い合わせ・ご予約はこちら</a>
+              </div>
+            </div>
+            <div class="l-contact__img">
+              <img src="./img/contact-img.png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <footer class="l-footer">
+          <div class="l-footer__inner inner">
+            <div class="l-footer__container">
+              <div class="l-footer__contents">
+                <h1 class="l-footer__logo">
+                  <img src="./img/logo.png" alt="logo" />
+                </h1>
+                <div class="l-footer__sns">
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/instagram.svg" alt="instagram"
+                  /></a>
+                  <a href="" class="l-footer__sns-link"
+                    ><img src="./img/facebook.svg" alt="facebook"
+                  /></a>
+                </div>
+              </div>
+              <ul class="l-footer__nav-list">
+                <li class="l-footer__nav-item"><a href="#news">おしらせ</a></li>
+                <li class="l-footer__nav-item">
+                  <a href="#concept">コンセプト</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#service">サービス</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#gallery">ギャラリー</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#staff">スタッフ</a>
+                </li>
+                <li class="l-footer__nav-item">
+                  <a href="#access">アクセス</a>
+                </li>
+              </ul>
+            </div>
+            <div class="l-footer__bottom">
+              <ul class="l-footer__bottom-list">
+                <li class="l-footer__bottom-item"><a href="#">利用規約</a></li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">プライバシーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">セキュリティーポリシー</a>
+                </li>
+                <li class="l-footer__bottom-item">
+                  <a href="#">特定商取引に基づく表記</a>
+                </li>
+              </ul>
+              <small class="l-footer__bottom-copyright"
+                >© Époque Studio All rights reserved.</small
+              >
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
 
