@@ -2171,7 +2171,7 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: clamp(0rem, -1.7142857143rem + 3.5714285714vw, 1.5rem);
+  gap: clamp(0.3125rem, -1.0446428571rem + 2.8273809524vw, 1.5rem);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2184,6 +2184,18 @@ a:hover {
   height: clamp(10rem, 2.7857142857rem + 15.0297619048vw, 16.3125rem);
   aspect-ratio: 1/1;
   position: relative;
+}
+@media screen and (min-width: 600px) {
+  .l-reserve-process__contents-item {
+    width: 180px;
+    height: 180px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .l-reserve-process__contents-item {
+    width: clamp(10rem, 2.7857142857rem + 15.0297619048vw, 16.3125rem);
+    height: clamp(10rem, 2.7857142857rem + 15.0297619048vw, 16.3125rem);
+  }
 }
 .l-reserve-process__contents-item::after {
   content: "";
@@ -2231,12 +2243,12 @@ a:hover {
 @media screen and (min-width: 768px) {
   .l-reserve-contact__contents {
     width: 55.5555555556%;
+    max-width: 800px;
   }
 }
 @media screen and (min-width: 1200px) {
   .l-reserve-contact__contents {
     width: auto;
-    max-width: 800px;
   }
 }
 .l-reserve-contact__contents .l-reserve__title {
