@@ -1,50 +1,28 @@
-// ヘッダーのパディング自動調整
-// document.addEventListener("DOMContentLoaded", function () {
-//   const header = document.querySelector(".header");
-//   const wrapper = document.querySelector(".wrapper");
-
-//   function adjustPadding() {
-//     let headerHeight = header.offsetHeight; // 現在のヘッダーの高さを取得
-//     wrapper.style.paddingTop = headerHeight + "px"; // その高さ分のパディングを設定
-//   }
-
-//   adjustPadding();
-//   window.addEventListener("resize", adjustPadding); // ウィンドウサイズ変更時に再調整
-// });
-
-// ヘッダーの透明化
-// const jsHeader = document.querySelector("#js-header");
-// const fvSection = document.querySelector(".fv"); // .fvセクション
-// const newsSection = document.querySelector(".news"); // .newsセクション
-
-// window.addEventListener("scroll", () => {
-//   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//   const fvTop = fvSection.offsetTop;
-//   const newsTop = newsSection.offsetTop;
-//   const newsHeight = newsSection.offsetHeight;
-
-//   // fvセクション内からnewsセクションが終わるまで透明化
-//   if (scrollTop >= fvTop && scrollTop < newsTop + newsHeight) {
-//     jsHeader.classList.add("is-scrolled");
-//   } else {
-//     jsHeader.classList.remove("is-scrolled");
-//   }
-// });
-
-// ヘッダーの背景色変更（安全に）
+// ヘッダーの出現
 window.addEventListener("scroll", () => {
   const headerFollow = document.querySelector(".header-follow");
-  const newsSection = document.querySelector("#news");
 
-  if (!headerFollow || !newsSection) return; // どっちかないなら処理しない
+  if (!headerFollow) return;
 
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const newsTop = newsSection.offsetTop;
+  const newsSection = document.querySelector("#news");
 
-  if (scrollTop >= newsTop) {
-    headerFollow.classList.add("is-show");
+  // newsがある場合 → newsの位置で判定
+  if (newsSection) {
+    const newsTop = newsSection.offsetTop;
+
+    if (scrollTop >= newsTop) {
+      headerFollow.classList.add("is-show");
+    } else {
+      headerFollow.classList.remove("is-show");
+    }
   } else {
-    headerFollow.classList.remove("is-show");
+    // newsがない場合 → 300pxで判定
+    if (scrollTop >= 300) {
+      headerFollow.classList.add("is-show");
+    } else {
+      headerFollow.classList.remove("is-show");
+    }
   }
 });
 
@@ -127,7 +105,11 @@ jQuery(".header__open").on("click", function (e) {
   e.preventDefault();
   jQuery(".header__open").toggleClass("is-checked");
   jQuery("#js-drawer-content").toggleClass("is-checked");
-  jQuery("body").toggleClass("is-fixed");
+
+  // ✅ SPサイズのときだけ body に is-fixed を付与
+  if (window.innerWidth < 768) {
+    jQuery("body").toggleClass("is-fixed");
+  }
 
   if (jQuery("#js-drawer-content").hasClass("is-checked")) {
     jQuery(".drawer-animation__item").addClass("is-animated");
@@ -140,9 +122,12 @@ jQuery(".header__open").on("click", function (e) {
 jQuery("#js-drawer-content a[href^='#']").on("click", function (e) {
   jQuery("#js-drawer-icon").removeClass("is-checked");
   jQuery("#js-drawer-content").removeClass("is-checked");
-  jQuery("body").removeClass("is-fixed");
 
-  // アニメーションもリセット
+  // ✅ SPサイズのときだけ is-fixed を削除
+  if (window.innerWidth < 768) {
+    jQuery("body").removeClass("is-fixed");
+  }
+
   jQuery(".drawer-animation__item").removeClass("is-animated");
 });
 
@@ -151,46 +136,23 @@ jQuery("#js-drawer-close").on("click", function (e) {
   e.preventDefault();
   jQuery("#js-drawer-icon").removeClass("is-checked");
   jQuery("#js-drawer-content").removeClass("is-checked");
-  jQuery("body").removeClass("is-fixed");
 
-  // アニメーションもリセット
+  // ✅ SPサイズのときだけ is-fixed を削除
+  if (window.innerWidth < 768) {
+    jQuery("body").removeClass("is-fixed");
+  }
+
   jQuery(".drawer-animation__item").removeClass("is-animated");
 });
 
-jQuery(".drawer__content .service__nav-link").on("click", function (e) {
-  e.preventDefault();
-
-  const $nav = jQuery(this);
-  const $target = $nav.next(".service__item-link"); // ←ここを修正！
-
-  $nav.toggleClass("is-open");
-  $target.stop().slideToggle(300);
-});
-
-// リンクをクリックしたらそのセクションまでスクロール
-jQuery("a[href^='#']").on("click", function (e) {
-  e.preventDefault(); // デフォルトのページ遷移を防ぐ
-
-  const speed = 300;
-  const id = jQuery(this).attr("href");
-  const target = jQuery(id === "#" || id === "" ? "html" : id);
-
-  // ヘッダーの高さを取得（position: fixed; の場合）
-  const headerHeight = jQuery(".header").length
-    ? jQuery(".header").outerHeight()
-    : 0;
-
-  // スクロール位置を計算（ヘッダーの高さのみ考慮）
-  const position = target.length ? target.offset().top - headerHeight - 20 : 0;
-
-  // スクロールを実行
-  jQuery("html, body").animate(
-    {
-      scrollTop: position,
-    },
-    speed,
-    "swing"
-  );
+jQuery("a").on("click", function (e) {
+  // ドロワーが開いてる状態なら閉じる
+  if (jQuery("#js-drawer-content").hasClass("is-checked")) {
+    jQuery("#js-drawer-icon").removeClass("is-checked");
+    jQuery("#js-drawer-content").removeClass("is-checked");
+    jQuery("body").removeClass("is-fixed");
+    jQuery(".drawer-animation__item").removeClass("is-animated");
+  }
 });
 
 // サービスセクションのスライド
@@ -281,6 +243,51 @@ if (serviceDecoration) {
 
   decorationObserver.observe(serviceDecoration);
 }
+
+function setServiceNavBehavior() {
+  const windowWidth = window.innerWidth;
+
+  // 既存のイベントを一旦解除してから再設定（リサイズ対応も見越して）
+  jQuery(".service__nav-link").off();
+  jQuery(".service__item-link").off();
+
+  if (windowWidth < 768) {
+    // 🔽 768未満：クリックでスライドトグル
+    jQuery(".service__nav-link").on("click", function (e) {
+      e.preventDefault();
+      const $nav = jQuery(this);
+      const $target = $nav.next(".service__item-link");
+
+      $nav.toggleClass("is-open");
+      $target.stop().slideToggle(300);
+    });
+  } else {
+    // 🔼 768以上：ホバーで表示
+    jQuery(".service__nav-link")
+      .on("mouseenter", function () {
+        jQuery(".service__item-link").addClass("is-show");
+      })
+      .on("mouseleave", function () {
+        if (!jQuery(".service__item-link:hover").length) {
+          jQuery(".service__item-link").removeClass("is-show");
+        }
+      });
+
+    jQuery(".service__item-link").on("mouseleave", function () {
+      if (!jQuery(".service__nav-link:hover").length) {
+        jQuery(this).removeClass("is-show");
+      }
+    });
+  }
+}
+
+// 初期化
+setServiceNavBehavior();
+
+// リサイズ時にも再設定（レスポンシブ対応）
+jQuery(window).on("resize", function () {
+  setServiceNavBehavior();
+});
 
 // こりんさんcontact headの左右アニメーション
 document.addEventListener("DOMContentLoaded", function () {

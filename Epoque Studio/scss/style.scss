@@ -102,6 +102,7 @@ a {
   padding-inline: cal-clamp(20, 30);
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .section {
@@ -114,6 +115,7 @@ a {
   position: relative;
   z-index: 0;
   text-align: center;
+  display: inline-block;
 }
 
 .heading-title-en {
@@ -121,12 +123,16 @@ a {
   font-size: cal-clamp(40, 100);
   line-height: 2;
   position: absolute;
-  top: -22px;
+  top: -110%;
+  left: 4%;
   z-index: -1;
   color: $sub-color;
 
   @include mq(md) {
-    top: -53px;
+    top: auto;
+    left: auto;
+    bottom: -128%;
+    right: -60%;
   }
 }
 
@@ -176,6 +182,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
+  height: 64px;
   z-index: 200;
   font-family: $font-family-sub;
   transition: visibility 0.3s ease, background-color 0.3s ease,
@@ -301,9 +308,21 @@ a {
   }
 }
 
+.drawer-content__list {
+}
+
 .drawer__content {
   .service__nav-link {
     position: relative;
+
+    @include mq(md) {
+      &:hover {
+        .service__item-link {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
 
     &::after {
       content: "";
@@ -342,9 +361,9 @@ a {
 .header .service__item-link {
   opacity: 0;
   position: absolute;
-  top: 100%;
+  top: 97%;
   left: 0;
-  width: 230px;
+  width: 260px;
 }
 
 .drawer__content .service__item-link {
@@ -352,7 +371,16 @@ a {
   border-bottom: 1px solid $sub-color;
 
   @include mq(md) {
-    display: none !important;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: -337%;
+
+    &.is-show {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
 
@@ -396,8 +424,8 @@ a {
 
 .header__nav-contact-item,
 .drawer-contact__item {
-  padding-top: 39px;
-  padding-bottom: 40px;
+  padding-top: 21px;
+  padding-bottom: 21px;
   padding-left: cal-clamp(20, 62);
   padding-right: cal-clamp(20, 52);
   white-space: nowrap;
@@ -414,8 +442,8 @@ a {
   &:nth-child(2) {
     color: $white;
     background-color: $main-color;
-    padding-top: 39px;
-    padding-bottom: 40px;
+    padding-top: 21px;
+    padding-bottom: 21px;
     padding-left: cal-clamp(20, 42);
     padding-right: cal-clamp(20, 42);
 
@@ -449,21 +477,21 @@ a {
   // &.is-checked {
   //   .header__btn-line {
   //     &:nth-child(1) {
-  //       transform: rotate(45deg);transformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransform
-  //       top: 9px;toptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptop
-  //       left: 4px;leftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleft
-  //       transition: all 0.3s ease;transitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransition
+  //       transform: rotate(45deg);transformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransform
+  //       top: 9px;toptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptop
+  //       left: 4px;leftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleft
+  //       transition: all 0.3s ease;transitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransition
   //     }
 
   //     &:nth-child(2) {
-  //       transform: rotate(-45deg);transformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransform
-  //       top: 9px;toptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptop
-  //       left: 4px;leftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleft
-  //       transition: all 0.3s ease;transitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransition
+  //       transform: rotate(-45deg);transformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransformtransform
+  //       top: 9px;toptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptoptop
+  //       left: 4px;leftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleft
+  //       transition: all 0.3s ease;transitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransitiontransition
   //     }
 
   //     &:nth-child(3) {
-  //       opacity: 0;opacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacity
+  //       opacity: 0;opacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacityopacity
   //     }
   //   }
   // }
@@ -575,6 +603,7 @@ a {
   @include mq(md) {
     text-align: center;
     gap: 24px;
+    position: relative;
   }
 }
 
@@ -746,7 +775,6 @@ a {
       object-position: center;
 
       @include mq(md) {
-        min-height: 600px;
         height: 100%;
       }
     }
@@ -1021,7 +1049,16 @@ a {
 }
 
 .news__heading-en {
-  right: 36%;
+  left: 40%;
+  @include mq(md) {
+    top: auto;
+    bottom: 35%;
+    right: -20%;
+  }
+
+  @include mq(xl) {
+    bottom: -35%;
+  }
 }
 
 .news__list {
@@ -1173,7 +1210,7 @@ a {
   right: -100px; /* 初期位置を画面の外（右端）にする */
 
   &.is-animated {
-    animation: fly 2s linear forwards 1;
+    animation: fly 4s linear forwards 1;
   }
 
   img {
@@ -1287,17 +1324,23 @@ a {
   0% {
     transform: translateX(0) translateY(0) rotate(0deg);
   }
+  10% {
+    transform: translateX(-10vw) translateY(100px) rotate(20deg);
+  }
   25% {
     transform: translateX(-25vw) translateY(30px) rotate(-5deg);
   }
   50% {
     transform: translateX(-50vw) translateY(-30px) rotate(-10deg);
   }
+  60% {
+    transform: translateX(-60vw) translateY(40px) rotate(-15deg);
+  }
   75% {
-    transform: translateX(-75vw) translateY(20px) rotate(-15deg);
+    transform: translateX(-75vw) translateY(20px) rotate(-30deg);
   }
   100% {
-    transform: translateX(-100vw) translateY(-50px) rotate(-20deg);
+    transform: translateX(-110vw) translateY(-50px) rotate(-10deg);
   }
 }
 
@@ -1305,7 +1348,7 @@ a {
   font-size: cal-clamp(14, 20);
   line-height: 2;
   text-align: center;
-  max-width: 472px;
+  white-space: nowrap;
 }
 
 .concept__img {
@@ -1357,7 +1400,6 @@ a {
 }
 
 .service__heading-en {
-  right: 24%;
 }
 
 .service-content__wrapper {
@@ -1538,7 +1580,6 @@ a {
 }
 
 .gallery__heading-en {
-  right: 32%;
 }
 
 .gallery__slider {
@@ -1613,11 +1654,10 @@ a {
 }
 
 .staff__heading-en {
-  right: 32%;
 }
 
 .staff__heading-message {
-  margin-top: 24px;
+  margin-top: cal-clamp(24, 80);
   text-align: center;
 }
 
@@ -1661,8 +1701,10 @@ a {
   background-color: $light-gray;
 }
 
+.access__inner {
+}
+
 .access__heading-en {
-  right: 32%;
 }
 // max-widthの指定はスタッフの写真と幅を合わせる為
 .access-content__wrapper {
@@ -1671,6 +1713,7 @@ a {
   gap: 10px;
   margin-top: cal-clamp(24, 168);
   max-width: calc(248 / 335 * 100%);
+  text-align: left;
 
   margin-inline: auto;
 
@@ -1762,7 +1805,13 @@ a {
   .wrapper {
     background-image: none;
   }
+
+  .header {
+    background-color: $beige;
+  }
 }
+
+// ご予約・お問い合わせ
 
 .l-reserve-process {
 }
@@ -1777,52 +1826,102 @@ a {
 }
 
 .l-reserve__title {
-  margin-top: 80px;
+  margin-top: cal-clamp(40, 80);
   text-align: center;
-  font-size: 40px;
+  font-size: cal-clamp(16, 40);
 }
 
 .l-reserve-process__contents {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   flex: 1;
-  margin-top: 80px;
+  margin-top: cal-clamp(40, 80);
   justify-content: center;
+  align-items: center;
+
+  @include mq(md) {
+    flex-direction: row;
+  }
 }
 
 .l-reserve-process__contents-item {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: cal-clamp(5, 24);
   align-items: center;
   justify-content: center;
   background-color: $beige;
   border-radius: 50%;
-  width: 261px;
-  height: 261px;
+  width: cal-clamp(160, 261);
+  height: cal-clamp(160, 261);
+  aspect-ratio: 1/1;
+  position: relative;
+
+  @include mq(sm) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @include mq(md) {
+    width: cal-clamp(160, 261);
+    height: cal-clamp(160, 261);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -21px;
+    width: 8px;
+    height: 22px;
+    background-color: $beige;
+
+    @include mq(md) {
+      bottom: auto;
+      right: -22px;
+      width: 22px;
+      height: 8px;
+    }
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .l-reserve-process__contents-item-title {
-  font-size: 20px;
+  font-size: cal-clamp(14, 20);
 }
 
 .l-reserve-process__contents-item-icon {
-  width: 48px;
-  height: 48px;
+  width: cal-clamp(30, 48);
+  height: cal-clamp(30, 48);
 }
 
 .l-reserve-process__contents-item-text {
-  font-size: 12px;
+  font-size: cal-clamp(10, 12);
   text-align: center;
 }
 
 .l-reserve-contact__contents {
   margin-block: 80px;
-  padding: 40px 78px;
+  padding-block: 40px;
+  padding-inline: cal-clamp(10, 78);
   border: 1px solid $main-color;
   border-radius: 8px;
-  max-width: 800px;
+  max-width: 400px;
   margin-inline: auto;
+
+  @include mq(md) {
+    width: calc(800px / 1440px * 100%);
+    max-width: 800px;
+  }
+
+  @include mq(xl) {
+    width: auto;
+  }
 
   .l-reserve__title {
     margin-top: 0;
@@ -1831,39 +1930,51 @@ a {
 
 .l-reserve-contact__line {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: left;
   gap: 24px;
+  justify-content: center;
+
+  @include mq(md) {
+    flex-direction: column;
+    gap: cal-clamp(12, 24);
+  }
 }
 
 .l-reserve-contact__line-icon {
-  width: 115px;
-  height: 115px;
+  width: cal-clamp(90, 115);
+  height: cal-clamp(90, 115);
 }
 
 .l-reserve-contact__line-text {
-  font-size: 20px;
+  font-size: cal-clamp(10, 20);
+  text-align: left;
 }
 
 .l-reserve-contact__bottom-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
+  margin-top: cal-clamp(40, 80);
+  flex-direction: column;
+  gap: 20px;
+  @include mq(md) {
+    flex-direction: row;
+  }
 }
 
 .l-reserve-contact__info {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  font-size: 18px;
+  justify-content: center;
+  font-size: cal-clamp(10, 18);
 }
 
 .l-reserve-contact__info-term {
   display: flex;
-  gap: 35px;
+  gap: cal-clamp(10, 35);
+  text-align: left;
 
   dt {
-    width: 126px;
+    width: cal-clamp(100, 126);
   }
 }
 
@@ -1990,7 +2101,6 @@ a {
   width: 100px;
   animation: expandFadeOut 5s ease-in-out forwards;
 }
-
 
 // お知らせ 一覧ページ
 .p-news {
