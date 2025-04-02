@@ -40,7 +40,7 @@
   </head>
   <!-- ページの内容 -->
 
-  <body class="l-container body-news">
+  <body class="l-container">
     <header id="js-header" class="header header-follow">
       <div class="header__inner inner">
         <div class="header__logo">
@@ -235,88 +235,26 @@
         </div>
       </div>
     </header>
-  
+
+    <!-- メインコンテンツ -->
     <div class="wrapper">
       <main>
-        <section class="p-news">
-          <div class="p-news__inner inner">
+        <section class="p-news-page">
+          <div class="p-news-page__inner inner">
             <div class="l-head__heading p-news__head">
               <p class="l-head__heading-text">おしらせ</p>
             </div>
-            <div class="p-news__cards js-slidein">
-              <article class="p-news__card slidein-l">
-                <a href="https://epoque-studio.korinostudio.com/news-page01.html" class="p-news__card-link">
-                  <img src="./img/img-news1.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2025-01-15">2025.01.15</time>
-                  <h1 class="p-news__card-title">3月3日はひな祭り。初節句のお祝いを写真に残しませんか？</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-r">
-                <a href="https://epoque-studio.korinostudio.com/news-page02.html" class="p-news__card-link">
-                  <img src="./img/img-news2.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2025-01-01">2025.01.01</time>
-                  <h1 class="p-news__card-title">あけましておめでとうございます。</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-l">
-                <a href="https://epoque-studio.korinostudio.com/news-page03.html" class="p-news__card-link">
-                  <img src="./img/img-news3.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-12-01">2024.12.01</time>
-                  <h1 class="p-news__card-title">七五三、2月の後撮りおすすめです。</h1>
-                </a>
-              </article>
-            </div>
-            <div class="p-news__cards p-news__cards-2">
-              <article class="p-news__card slidein-r slidein-delay">
-                <a href="https://epoque-studio.korinostudio.com/news-page04.html" class="p-news__card-link ">
-                  <img src="./img/img-news4.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-11-20">2025.11.20</time>
-                  <h1 class="p-news__card-title">大切な人への贈り物に。フォトギフトで感謝を伝える</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-l slidein-delay">
-                <a href="https://epoque-studio.korinostudio.com/news-page05.html" class="p-news__card-link">
-                  <img src="./img/img-news5.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-10-01">2024.10.01</time>
-                  <h1 class="p-news__card-title">一生に一度の成人式。振袖・袴姿を美しく残しましょう</h1>
-                </a>
-              </article>
-              <article class="p-news__card slidein-r slidein-delay">
-                <a href="https://epoque-studio.korinostudio.com/news-page06.html" class="p-news__card-link">
-                  <img src="./img/img-news6.png" alt="ニュース">
-                  <time class="p-news__card-date" datetime="2024-06-01">2024.06.01</time>
-                  <h1 class="p-news__card-title">七五三の撮影予約スタート！最高の笑顔を未来へ</h1>
-                </a>
-              </article>
-            </div>
-            <div class="l-pager">
-              <nav class="p-pager">
-                <span aria-current="page" class="page-numbers current">1</span>
-                <a class="page-numbers" href="">2</a>
-                <!-- <a class="next page-numbers" href=""><i class="fas fa-angle-right"></i></a> -->
-              </nav>
-            </div>
+            <article class="p-news-page__card">
+              <img class="js-fade-in-load" src="./img/img-news3.png" alt="ニュース">
+              <time class="p-news-page__card-date slidein-l" datetime="2024-12-01">2024.12.01</time>
+              <h1 class="p-news-page__card-title slidein-l">七五三、2月の後撮りおすすめです。</h1>
+              <p class="p-news-page__card-text slidein-l">
+                七五三の撮影、忙しくてタイミングを逃してしまった…という方へ。<br>冬の落ち着いた時期に、ゆっくり撮影できる「後撮り」がおすすめです！<br>2月は、混雑を避けて撮影できるため、お子さまのリラックスした表情を引き出しやすくなります。<br>また、寒さ対策をしながらのロケーション撮影や、スタジオ内での温かみのある撮影も可能です。<br><br>今なら特典付き！<br>詳細はお問い合わせください。
+              </p>
+            </article>
           </div>
         </section>
-  
-        <section class="l-contact">
-          <div class="l-contact__inner inner">
-            <div class="l-contact__contents">
-              <div class="l-contact__head">
-                <img src="./img/plane-icon.png" alt="">
-                <div class="l-contact__head-text">
-                  <h1 class="l-contact__head-en">CONTACT FORM</h1>
-                  <p class="l-contact__head-ja">お気軽にご相談ください。</p>
-                </div>
-              </div>
-              <div class="link__button l-contact__button">
-                <a href="https://epoque-studio.korinostudio.com/contact.html">お問い合わせ・ご予約はこちら</a>
-              </div>
-            </div>
-            <div class="l-contact__img"><img src="./img/contact-img.png" alt=""></div>
-          </div>
-        </section>
-  
+
         <footer class="l-footer">
           <div class="l-footer__inner inner">
             <div class="l-footer__container">
@@ -355,6 +293,7 @@
         </footer>
       </main>
     </div>
+  
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
