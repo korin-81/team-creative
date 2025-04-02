@@ -1792,7 +1792,7 @@ a {
   font-size: 12px;
 }
 
-.body-reservation {
+.l-container {
   .wrapper {
     background-image: none;
   }
@@ -1930,14 +1930,63 @@ a {
   }
 }
 
+
+
+
 // こりんコーディング
+/* 全画面ローディング用 */
+// #loading {
+//   position: fixed;
+//   width: 100%;
+//   height: 100vh;
+//   background: #fff;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 9999;
+// }
+
+// /* ロゴのアニメーション */
+// @keyframes expandFadeOut {
+//   0% {
+//     transform: scale(0.1) rotate(0deg);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(60) rotate(240deg);
+//     opacity: 0;
+//   }
+// }
+
+// #loading-logo {
+//   width: 100px;
+//   animation: expandFadeOut 5s ease-in-out forwards;
+// }
+
+// /* FVの初期状態（非表示） */
+// #fv {
+//   width: 100%;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   opacity: 0;
+//   transition: opacity 1s ease-in-out;
+// }
+
+// #fv img {
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+// }
+
+// 共通下層サブヘッダー
 .l-header {
   background: $beige;
 }
 
 .l-head__heading {
-  padding-top: cal-clamp(8, 16);
-  padding-bottom: cal-clamp(8, 16);
+  padding:cal-clamp(8, 10) 0;
   display: flex;
   gap: 8px;
   font-family: "Sawarabi Gothic";
@@ -1965,7 +2014,7 @@ a {
   }
 }
 
-// フェードイン　共通
+// 共通フェードイン
 .js-in-view {
   opacity: 0;
   transform: translateY(20px); /* 下から上にフェードイン */
@@ -2015,43 +2064,6 @@ a {
   animation: slidein-r 1.5s ease-out both;
 }
 
-// サービス下層 リンク一覧
-
-// .view.view-slideup {
-// 	opacity: 0;
-// 	&.on {
-// 		opacity: 1;
-// 		animation: view-slideup 0.8s ease both;
-// 	}
-// }
-// @keyframes view-slideup {
-// 	0% {
-// 		opacity: 0;
-// 		transform: translate(0,35px);
-// 	}
-// 	100% {
-// 		opacity: 1;
-// 		transform: translate(0,0);
-// 	}
-// }
-// .view.view-slidein-l {
-// 	opacity: 0;
-// 	&.on {
-// 		opacity: 1;
-// 		animation: view-slidein-l 0.6s ease both;
-// 	}
-// }
-// @keyframes view-slidein-l {
-// 	0% {
-// 		opacity: 0;
-// 		transform: translate(35px,0);
-// 	}
-// 	100% {
-// 		opacity: 1;
-// 		transform: translate(0,0);
-// 	}
-// }
-
 .p-service__box {
   opacity: 0;
   transform: translateX(100px);
@@ -2071,14 +2083,11 @@ a {
   transform: translateX(0) translateY(0);
 }
 
-
-
 /* 表示されたとき */
 .p-service__box.on {
   opacity: 1;
   transform: translate(0, 0);
 }
-
 
 .p-news__cards {
   opacity: 0;
@@ -2090,55 +2099,9 @@ a {
 }
 
 
-/* 全画面ローディング用 */
-#loading {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* ロゴのアニメーション */
-@keyframes expandFadeOut {
-  0% {
-    transform: scale(0.1) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(60) rotate(240deg);
-    opacity: 0;
-  }
-}
-
-#loading-logo {
-  width: 100px;
-  animation: expandFadeOut 5s ease-in-out forwards;
-}
-
-/* FVの初期状態（非表示） */
-#fv {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-#fv img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-// お知らせ 一覧ページ
+// 下層お知らせ一覧ページ
 .p-news {
-  margin-bottom: 82px;
+  margin-bottom: cal-clamp(46, 82);
 }
 
 .p-news__inner {
@@ -2149,10 +2112,26 @@ a {
 }
 
 .p-news__cards {
-  margin-top: 72px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 80px 47px;
+  max-width: 560px;
+  width: 100%;
+  margin:40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: cal-clamp(24, 37);
+  
+  
+  text-align: left;
+  @include mq(md){
+    margin-top: 77px;
+    max-width: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: cal-clamp(72, 80) cal-clamp(32, 47);
+  }
+}
+
+.p-news__cards-2 {
+  margin: cal-clamp(24, 41) auto;
 }
 
 .p-news__card {
@@ -2160,11 +2139,14 @@ a {
 }
 
 .p-news__card-link {
-
+  transition: all 0.6s ease;
+  img {
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
 }
 
 .p-news__card-date {
-  margin-top: 16px;
   font-family: "Noto Sans JP";
   font-weight: 700;
   line-height: normal;
@@ -2179,7 +2161,7 @@ a {
 }
 
 .l-pager {
-  margin-top: 88px;
+  margin-top: cal-clamp(51, 88);
 }
 
 .p-pager {
@@ -2214,7 +2196,7 @@ a {
   color: $white;
 }
 
-// contact
+// 共通フッターお問い合わせ
 .l-contact__head,
 .l-contact__button {
   opacity: 0;
@@ -2224,7 +2206,7 @@ a {
   }
 }
 
-// contact head のアニメーション
+//共通フッターお問い合わせのアニメーション
 @keyframes view-slidein-r {
   from {
     opacity: 0;
@@ -2258,7 +2240,7 @@ a {
 
 .l-contact {
   background: $beige;
-  padding-top: cal-clamp(64, 80);
+  padding-top: cal-clamp(40, 80);
 }
 
 .l-contact__inner {
@@ -2274,6 +2256,8 @@ a {
 
   @include mq(md){
     flex-direction: row;
+    gap: 208px;
+    margin-left: 4%;
   }
 }
 
@@ -2311,17 +2295,34 @@ a {
   letter-spacing: cal-clamp(0.64, 0.8);
   
   @include mq(md){
-    margin-top: 0;
+    margin-top: 9px;
+  }
+}
+
+.l-contact__button {
+  font-size: cal-clamp(14, 16);
+  padding: 13px 48px 16px 49px;
+  @include mq(md){
+    padding: 14px 52px 12px 44px;
+  }
+  &:hover {
+    color: $main-color;
+    background-color: transparent;
+
+    &::after {
+      background-color: $main-color;
+      left: 8px;
+    }
   }
 }
 
 .l-contact__img {
-  margin-top: 74px;
+  margin-top: cal-clamp(63, 74);
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
 
-// l-footer
+// 共通フッター
 .l-footer {
   background: $beige;
   padding: 70px 0;
@@ -2401,17 +2402,19 @@ a {
 }
 
 .l-footer__nav-list {
-  margin-top: 23px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: cal-clamp(6, 40);
+  align-items: baseline;
+  gap: cal-clamp(9, 40);
+  max-width: 70px;
+  margin: 23px auto 0;
+  text-align: left;
 
   @include mq(md){
-    margin-top: 0;
+    margin: 0;
     flex-direction: row;
-    align-items: baseline;
+    max-width: inherit;
   }
 }
 
@@ -2425,7 +2428,7 @@ a {
   a {
     display: inline-block;
     position: relative;
-    padding-bottom: 4px; 
+    padding-bottom: (0, 4); 
     text-decoration: none;
     font-size: cal-clamp(14, 15);
 
@@ -2451,7 +2454,7 @@ a {
 }
 
 .l-footer__bottom {
-  margin-top: 48px;
+  margin-top: cal-clamp(18, 48);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2468,7 +2471,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: cal-clamp(6, 24);
+  gap: cal-clamp(0, 24);
 
   @include mq(md){
     flex-direction: row;
@@ -2484,7 +2487,7 @@ a {
     font-size: 12px;
     display: inline-block;
     position: relative;
-    padding-bottom: 4px; 
+    padding-bottom: cal-clamp(0, 4); 
     text-decoration: none;
 
     &::after {
@@ -2510,14 +2513,11 @@ a {
 
 .l-footer__bottom-copylight {
   font-family: "Noto Sans JP";
-  font-size: 13px;
-  margin-top: 8px;
-  @include mq(md){
-    margin-top: 0;
-  }
+  font-size: cal-clamp(12, 13);
+
 }
 
-// お知らせ 記事ページ
+// 下層お知らせ 記事詳細ページ
 .p-news-page {
   
 }
@@ -2531,12 +2531,21 @@ a {
 }
 
 .p-news-page__card {
-  padding: 72px 0 63px;
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 0 44px;
+  margin: 0 auto;
   text-align: left;
-  font-size: cal-clamp(14, 16);
+  font-size: cal-clamp(16, 20);
+
+  @include mq(md){
+    max-width: inherit;
+    padding: 77px 0 80px;
+  }
 
   img {
-    margin-bottom: 16px;
+    margin-bottom: cal-clamp(13, 16);
+    border-radius: 8px;
   }
 }
 
@@ -2546,17 +2555,24 @@ a {
 }
 
 .p-news-page__card-title {
-  margin: 8px 0;
   font-weight: 700;
   line-height: 180%; /* 28.8px */
+  margin: 6px 0 24px;
+
+  @include mq(md){
+    margin: 8px 0 16px;
+  }
 }
 
 .p-news-page__card-text {
   font-weight: 400;
-  line-height: 200%; /* 32px */
+  line-height: 180%; 
+  @include mq(md){
+    line-height: 200%; /* 32px */
+  }
 }
 
-// サービス＆料金ページ
+// 下層サービス＆料金ページ
 .p-service {
 
 }
@@ -2926,7 +2942,7 @@ a {
 }
 
 .p-news__inner {
-  padding-inline: cal-clamp(16, 30);
+  padding-inline: cal-clamp(20, 30);
 }
 
 .reservation__form {
@@ -3184,7 +3200,7 @@ a {
     content: "✓";
     width: 20px;
     height: 20px;
-    left: 5px;
+    left: -2px;
     opacity: 0;
   }
 
@@ -3235,5 +3251,33 @@ a {
     opacity: 0.9;
     transition: all 0.6s ease;
   }
+}
+
+// 404ページ
+.p-404-page {
+}
+
+.p-404-page__inner {
+
+}
+
+.p-404-page__body {
+  margin:cal-clamp(80, 120) auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: cal-clamp(20, 40);
+}
+
+.p-404-page__body-404 {
+  font-size: cal-clamp(40, 80);
+  font-weight: 400;
+}
+
+.p-404-page__body-text {
+  font-family: Inter;
+  font-size: cal-clamp(20, 32);
+  font-weight: 400;
 }
 

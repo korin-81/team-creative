@@ -201,53 +201,49 @@ const gallerySwiper = new Swiper(".gallery-swiper", {
 });
 
 // フェードイン
-// 一旦コメントアウト
-// const observer = new IntersectionObserver(
-//   function (entries) {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add("is-in-view");
-//       }
-//     });
-//   },
-//   {
-//     rootMargin: "0px 0px", //
-//     threshold: 1, // 100%見えたら発火
-//   }
-// );
+const observer = new IntersectionObserver(
+  function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in-view");
+      }
+    });
+  },
+  {
+    rootMargin: "0px 0px", //
+    threshold: 1, // 100%見えたら発火
+  }
+);
 
 // フェードインの対象を取得
-// 一旦コメントアウト
-// const fadeInElements = document.querySelectorAll(".js-in-view");
+const fadeInElements = document.querySelectorAll(".js-in-view");
 
-// // フェードインの対象を監視
-// 一旦コメントアウト
-// fadeInElements.forEach((element) => {
-//   observer.observe(element);
-// });
+// フェードインの対象を監視
+fadeInElements.forEach((element) => {
+  observer.observe(element);
+});
 
-// // サービスセクションのデコレーションアニメーション
-// // サービスデコレーション（安全に）
-// 一旦コメントアウト
-// const serviceDecoration = document.querySelector(".service-decoration");
+// サービスセクションのデコレーションアニメーション
+// サービスデコレーション（安全に）
+const serviceDecoration = document.querySelector(".service-decoration");
 
-// if (serviceDecoration) {
-//   const decorationObserver = new IntersectionObserver(
-//     (entries) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add("is-checked");
-//           decorationObserver.unobserve(entry.target);
-//         }
-//       });
-//     },
-//     {
-//       threshold: 0.3,
-//     }
-//   );
+if (serviceDecoration) {
+  const decorationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-checked");
+          decorationObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
 
-//   decorationObserver.observe(serviceDecoration);
-// }
+  decorationObserver.observe(serviceDecoration);
+}
 
 function setServiceNavBehavior() {
   const windowWidth = window.innerWidth;
@@ -294,94 +290,7 @@ jQuery(window).on("resize", function () {
   setServiceNavBehavior();
 });
 
-
-// サービスセクションのデコレーションアニメーション
-// サービスデコレーション（安全に）
-const serviceDecoration = document.querySelector(".service-decoration");
-
-if (serviceDecoration) {
-  const decorationObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-checked");
-          decorationObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.3,
-    }
-  );
-
-  decorationObserver.observe(serviceDecoration);
-}
-
-
-
-
-
-// フェードインまとめました！ こりん 
-// 再度まとめることが必要です！！！！！！
-const observer = new IntersectionObserver(
-  function (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-in-view");
-      }
-    });
-  },
-  {
-    rootMargin: "0px 0px", //
-    threshold: 1, // 100%見えたら発火
-  }
-);
-
-// ページロード時にアニメーションを発火
-document.addEventListener("DOMContentLoaded", function() {
-  const fadeInElements = document.querySelectorAll(".js-fade-in-load");
-
-  // ページ読み込み後にアニメーションを発火
-  fadeInElements.forEach((element) => {
-    element.classList.add("is-faded-in-load");
-    observer.observe(element); // IntersectionObserverでの監視も開始
-  });
-});
-
-// IntersectionObserverでの監視対象を追加
-const fadeInElements = document.querySelectorAll(".js-in-view");
-
-// IntersectionObserverで監視を開始
-fadeInElements.forEach((element) => {
-  observer.observe(element);
-});
-
-
-
-
-// こりん
-document.addEventListener("DOMContentLoaded", function () {
-  const contactSection = document.querySelector(".js-slidein");
-
-  if (contactSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            contactSection.classList.add("is-active");
-            observer.unobserve(entry.target); // 一度発火したら監視をやめる
-          }
-        });
-      },
-      { threshold: 0.3 } // 30%見えたら発火
-    );
-
-    observer.observe(contactSection);
-  }
-});
-
-
-// contact headの左右アニメーション
+// こりんさんcontact headの左右アニメーション
 document.addEventListener("DOMContentLoaded", function () {
   const contactSection = document.querySelector(".l-contact");
 
@@ -403,7 +312,89 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// newsアーカイブのスライドイン
+
+// フェードインまとめました！ こりん 
+// 恐らく不要
+// const observer = new IntersectionObserver(
+//   function (entries) {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         entry.target.classList.add("is-in-view");
+//       }
+//     });
+//   },
+//   {
+//     rootMargin: "0px 0px", //
+//     threshold: 1, // 100%見えたら発火
+//   }
+// );
+// // IntersectionObserverでの監視対象を追加
+// const fadeInElements = document.querySelectorAll(".js-in-view");
+
+// // IntersectionObserverで監視を開始
+// fadeInElements.forEach((element) => {
+//   observer.observe(element);
+// });
+
+
+
+// ページロード時にアニメーションを発火
+document.addEventListener("DOMContentLoaded", function() {
+  const fadeInElements = document.querySelectorAll(".js-fade-in-load");
+
+  // ページ読み込み後にアニメーションを発火
+  fadeInElements.forEach((element) => {
+    element.classList.add("is-faded-in-load");
+    observer.observe(element); // IntersectionObserverでの監視も開始
+  });
+});
+
+
+// // こりん
+document.addEventListener("DOMContentLoaded", function () {
+  const contactSection = document.querySelector(".js-slidein");
+
+  if (contactSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            contactSection.classList.add("is-active");
+            observer.unobserve(entry.target); // 一度発火したら監視をやめる
+          }
+        });
+      },
+      { threshold: 0.3 } // 30%見えたら発火
+    );
+
+    observer.observe(contactSection);
+  }
+});
+
+
+// contact head（フッター）の左右アニメーション
+document.addEventListener("DOMContentLoaded", function () {
+  const contactSection = document.querySelector(".l-contact");
+
+  if (contactSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            contactSection.classList.add("is-active");
+            observer.unobserve(entry.target); // 一度発火したら監視をやめる
+          }
+        });
+      },
+      { threshold: 0.3 } // 30%見えたら発火
+    );
+
+    observer.observe(contactSection);
+  }
+});
+
+
+// 下層おしらせ一覧ページのスライドイン
 document.addEventListener("DOMContentLoaded", function () {
   const newsSections = document.querySelectorAll(".p-news__cards");
 
@@ -462,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// serviceのアコーディオン・リンク押下後のスクロール
+// 下層サービスページのアコーディオン・リンク押下後のスクロール
 jQuery(document).ready(function () {
   // アコーディオンの開閉処理
   jQuery(".service-js-accordion").on("click", function (e) {
@@ -581,8 +572,7 @@ inputElements.on("input", function () {
 });
 
 
-
-// serviceページの上部リンクアニメーション
+// 下層サービスページの上部リンクアニメーション
 document.addEventListener("DOMContentLoaded", function () {
   const serviceBoxes = document.querySelectorAll(".p-service__box");
 
@@ -615,10 +605,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-// ローディング
+// ローディング 完成したら共有します
 // window.addEventListener("load", function() {
 //   setTimeout(function() {
 //     // ローディング画面を非表示にする
