@@ -1,3 +1,100 @@
+// ローディング追加
+window.addEventListener("load", function () {
+  // ローディング中のギャラリーSwiper（背景の流れる写真）
+  const gallerySwiper = new Swiper(".loading-swiper", {
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 0,
+    speed: 2500,
+    allowTouchMove: false,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    cssMode: false,
+    freeMode: true,
+    freeModeMomentum: false,
+    breakpoints: {
+      768: {
+        slidesPerView: 6,
+        spaceBetween: 0,
+      },
+    },
+    on: {
+      init: function () {
+        document.querySelector(".loading-swiper").style.visibility = "visible";
+      },
+    }
+  });
+
+  // スライダーアニメーションが終わったら非表示にする
+  document.getElementById("loading-slider").addEventListener("animationend", function () {
+    this.style.display = "none";
+  });
+
+  // ロゴアニメーションが終わったらローディング全体を非表示にし、FVを表示してSwiper初期化
+  document.getElementById("loading-logo").addEventListener("animationend", function () {
+    document.getElementById("loading").style.display = "none";
+
+    const fvLoading = document.getElementById("fv-loading");
+    fvLoading.style.display = "block";
+    fvLoading.style.opacity = 1;
+    fvLoading.offsetHeight; // 再描画
+
+    initializeSwiperInstance(); // Swiperの初期化
+  });
+
+  // FVのSwiper初期化関数（1回のみ）
+  function initializeSwiperInstance() {
+    if (window.fvSwiper) {
+      window.fvSwiper.destroy(true, true); // 再初期化時の保険（念のため）
+    }
+
+    window.fvSwiper = new Swiper(".fv-swiper", {
+      slidesPerView: 1,
+      loop: true,
+      speed: 2000,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '"></span>';
+        },
+        type: "bullets",
+        dynamicBullets: false,
+        dynamicMainBullets: 6,
+      },
+      on: {
+        click: function (swiper, event) {
+          if (event.target.closest(".swiper-slide")) {
+            swiper.slideNext();
+          }
+        },
+        init: function () {
+          console.log("FV Swiper initialized");
+        },
+        imagesReady: function () {
+          this.update();
+        },
+        slideChange: function () {
+          console.log("Slide changed: ", this.realIndex);
+        }
+      }
+    });
+  }
+});
+// ここまでローディング追加
+
+
+
 // TKGさん
 // ヘッダーの出現
 window.addEventListener("scroll", () => {
@@ -28,48 +125,48 @@ window.addEventListener("scroll", () => {
 });
 
 // FVのスライダー
-const swiper = new Swiper(".fv-swiper", {
-  slidesPerView: 1,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '"></span>';
-    },
-    type: "bullets",
-    dynamicBullets: false,
-    dynamicMainBullets: 6, // スライドの数に合わせて6に設定
-  },
-  loop: true, // 画像をループさせる
+// const swiper = new Swiper(".fv-swiper", {
+//   slidesPerView: 1,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//     renderBullet: function (index, className) {
+//       return '<span class="' + className + '"></span>';
+//     },
+//     type: "bullets",
+//     dynamicBullets: false,
+//     dynamicMainBullets: 6, // スライドの数に合わせて6に設定
+//   },
+//   loop: true, // 画像をループさせる
 
-  // 自動再生の設定
-  autoplay: {
-    delay: 5000, // 5秒間隔
-    disableOnInteraction: false, // ユーザー操作後も自動再生を継続
-  },
+//   // 自動再生の設定
+//   autoplay: {
+//     delay: 5000, // 5秒間隔
+//     disableOnInteraction: false, // ユーザー操作後も自動再生を継続
+//   },
 
-  // スライドのエフェクト設定
-  effect: "fade", // フェードエフェクトを使用
-  fadeEffect: {
-    crossFade: true, // クロスフェードを有効化
-  },
+//   // スライドのエフェクト設定
+//   effect: "fade", // フェードエフェクトを使用
+//   fadeEffect: {
+//     crossFade: true, // クロスフェードを有効化
+//   },
 
-  speed: 2000, // トランジション時間を2秒に設定
+//   speed: 2000, // トランジション時間を2秒に設定
 
-  // ページネーションの設定
-  pagination: {
-    el: ".swiper-pagination", // ページネーション要素のクラス
-    clickable: true, // クリック可能にする
-  },
+//   // ページネーションの設定
+//   pagination: {
+//     el: ".swiper-pagination", // ページネーション要素のクラス
+//     clickable: true, // クリック可能にする
+//   },
 
-  on: {
-    click: function (swiper, event) {
-      if (event.target.closest(".swiper-slide")) {
-        swiper.slideNext();
-      }
-    },
-  },
-});
+//   on: {
+//     click: function (swiper, event) {
+//       if (event.target.closest(".swiper-slide")) {
+//         swiper.slideNext();
+//       }
+//     },
+//   },
+// });
 
 // すべてのアニメーション対象を取得
 const conceptAnimations = document.querySelectorAll(".concept-animation__item");
@@ -599,23 +696,3 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(box);
   });
 });
-
-
-
-
-
-
-// ローディング 完成したら共有します
-// window.addEventListener("load", function() {
-//   setTimeout(function() {
-//     // ローディング画面を非表示にする
-//     document.getElementById("loading").style.display = "none";
-    
-//     // FVをフェードイン
-//     document.getElementById("fv").style.opacity = "1";
-//   }, 3000); // 1.5秒後に切り替え
-// });
-
-
-
-
